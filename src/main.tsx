@@ -1,5 +1,7 @@
 import {createRoot} from "react-dom/client";
+// App Router Component
+import AppRouter from "./routes/AppRouter.tsx";
+// Styles
 import "./index.css";
-import App from "./App.tsx";
-
-createRoot(document.getElementById("root")!).render(<App />);
+// Root
+createRoot(document.getElementById("root")!).render(<AppRouter />);

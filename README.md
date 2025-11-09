@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# Book Store Project 📖
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An e-commerce application for an online book store, built with React, TypeScript, and Vite. This project focuses on professional Git workflows, building a scalable project structure, and mastering state management with the Context API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+### Project Setup & Best Practices:
+- **Professional Boilerplate:** Built on a clean, professional template using Vite for a fast development experience.
+- **Absolute Import Paths:** Configured ` @/ ` aliases for cleaner, more maintainable import paths.
+- **Structured Git Workflow:** Adherence to feature-branching, atomic commits, and pull requests for every new feature.
+- **Custom Theming:** Centralized project theme (colors, fonts) configured in `tailwind.config.js`.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### Core Functionality:
+- **Book Browsing & Details:** Users can view a list of all available books and click on any book to see its dedicated details page.
+- **Shopping Cart (Context API):** A global shopping cart managed with React's Context API, allowing users to add, remove, and update the quantity of books.
 
-## Expanding the ESLint configuration
+### Authentication:
+- **Login & Register Pages:** Dedicated routes and placeholder pages for user authentication.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Layout & Static Pages:
+- **Main Layout:** A consistent and reusable layout structure with a shared Header and Footer.
+- **Static Pages:** Includes About Us, Authors, and Contact pages.
+- **Utility Components:** A `ScrollToTop` component to ensure smooth navigation between pages.
+- **Error Page:** A custom error page for handling invalid routes.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack & Setup
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Framework:** React with TypeScript & Vite
+- **Styling:** Tailwind CSS
+- **Routing:** React Router DOM
+- **Version Control:** Git & GitHub
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 How to Run
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/HossamGezo/book_store.git
+    ```
+2.  **Navigate into the project directory:**
+    ```sh
+    cd book_store
+    ```
+3.  **Install dependencies:**
+    ```sh
+    npm install
+    ```
+4.  **Run the development server:**
+    ```sh
+    npm run dev
+    ```

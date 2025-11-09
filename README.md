@@ -11,6 +11,7 @@ An e-commerce application for an online book store, built with React, TypeScript
 - **Absolute Import Paths:** Configured ` @/ ` aliases for cleaner, more maintainable import paths.
 - **Structured Git Workflow:** Adherence to feature-branching, atomic commits, and pull requests for every new feature.
 - **Custom Theming:** Centralized project theme (colors, fonts) configured in `tailwind.config.js`.
+- **Reusable UI Components:** Building a library of custom components from scratch, starting with a powerful `<Button />` component that uses `clsx` for dynamic and conditional styling.
 
 ### Core Functionality:
 - **Book Browsing & Details:** Users can view a list of all available books and click on any book to see its dedicated details page.
@@ -33,6 +34,9 @@ An e-commerce application for an online book store, built with React, TypeScript
 - **Styling:** Tailwind CSS
 - **Routing:** React Router DOM
 - **Version Control:** Git & GitHub
+
+### Key Libraries & Utilities
+- **`clsx`:** A tiny utility for constructing `className` strings conditionally, making dynamic component styling clean and readable.
 
 ---
 

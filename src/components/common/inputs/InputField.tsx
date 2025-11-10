@@ -10,10 +10,10 @@ type InputFieldType<T extends FieldValues> = {
   name: Path<T>;
   register: UseFormRegister<T>;
   error?: string;
-} & React.ComponentProps<"input">;
+} & Omit<React.ComponentProps<"input">, "name">;
 // Main Component
 const InputField = <T extends FieldValues>({
-  type,
+  type = "text",
   name,
   register,
   error,

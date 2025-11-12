@@ -1,5 +1,7 @@
 // Libraries
 import clsx from "clsx";
+// Styles
+import "./button.css";
 // Types
 type ButtonTypeOption = "button" | "submit" | "reset";
 type ButtonVariant = "primary" | "secondary" | "danger";
@@ -25,19 +27,21 @@ const Button = ({
 }: ButtonType) => {
   // Base Style
   const baseStyles =
-    "font-medium cursor-pointer active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300";
+    "font-medium cursor-pointer active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 select-none flex-center";
   // Variant Style
   const variantStyles = {
-    primary: "bg-primary text-white hover:bg-primary/80 active:bg-primary",
+    primary:
+      "bg-primary text-white hover:bg-primary/80 disabled:hover:bg-primary active:bg-primary",
     secondary:
-      "bg-green-600 text-white hover:bg-green-600/80 active:bg-green-600",
-    danger: "bg-red-600 text-white hover:bg-red-600/85 active:bg-red-600",
+      "bg-green-600 text-white hover:bg-green-600/80 disabled:hover:bg-primary active:bg-green-600",
+    danger:
+      "bg-red-600 text-white hover:bg-red-600/85 disabled:hover:bg-primary active:bg-red-600",
   };
   // Size Style
   const sizeStyles = {
-    sm: "px-3 py-1.5 text-sm w-[120px]",
-    md: "px-4 py-2 text-base w-[170px]",
-    lg: "px-6 py-3 text-lg",
+    sm: "px-3 py-1.5 h-[40px] text-sm font-bold w-[100px]",
+    md: "px-4 py-2 h-[50px] text-base font-bold w-[120px]",
+    lg: "px-6 py-3 h-[60px] text-lg font-bold w-[150px]",
     circle: "w-[50px] h-[50px]",
   };
   // Radius Styles

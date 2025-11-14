@@ -10,6 +10,7 @@ import About from "@/pages/about/About";
 import Contact from "@/pages/contact/Contact";
 import Register from "@/pages/register/Register";
 import Login from "@/pages/login/Login";
+import Cart from "@/pages/cart/Cart";
 // Main Component
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const AppRouter = () => {
         {
           path: "book/:id",
           Component: BookDetails,
+        },
+        {
+          path: "cart",
+          Component: Cart,
         },
         {
           path: "authors",

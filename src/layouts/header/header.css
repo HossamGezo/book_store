@@ -24,7 +24,7 @@
               border-right: 1px solid var(--color-blue-600);
               @apply h-full w-full flex items-center pl-5 transition-colors duration-300;
               &:hover {
-                background-color: var(--color-blue-700);
+                background-color: var(--color-blue-400);
               }
               &.active {
                 background-color: var(--color-blue-700);
@@ -44,12 +44,9 @@
   .header {
     @apply h-[130px];
     .ccontainer {
-      @apply flex items-center justify-between gap-3 h-[45.88px];
+      @apply justify-between gap-3 h-[45.88px];
       .header-logo {
         @apply w-10 h-full;
-      }
-      .header-search {
-        @apply absolute -bottom-14 left-1/2 -translate-x-1/2 text-sm h-10;
       }
       .header-nav {
         @apply static top-auto left-auto w-[80%] h-[45.88px] [clip-path:none] rounded-lg;
@@ -64,15 +61,7 @@
               @apply rounded-r-sm;
             }
             a {
-              background-color: var(--color-secondary);
-              border-right: 1px solid var(--color-blue-600);
-              @apply h-full w-full flex items-center justify-center pl-0;
-              &:hover {
-                background-color: var(--color-blue-700);
-              }
-              &.active {
-                background-color: var(--color-blue-700);
-              }
+              @apply justify-center pl-0;
             }
           }
         }

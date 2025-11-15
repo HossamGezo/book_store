@@ -23,7 +23,7 @@ const NavBar = ({toggleBar, setToggleBar}: NavBarProps) => {
           className="absolute top-5 right-5 text-4xl text-white"
         />
       )}
-      <ul className="header-nav-list">
+      <ul className="header-nav-list select-none">
         <li onClick={() => setToggleBar(false)}>
           <NavLink to="/">Home</NavLink>
         </li>

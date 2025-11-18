@@ -1,4 +1,3 @@
-// 
 // Types
 type SlideProps = {
   gradient: string;

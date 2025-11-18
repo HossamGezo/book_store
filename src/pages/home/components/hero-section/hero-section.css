@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer components {
+  .slide-image-container {
+    @apply relative animate-[bouncing_5s_ease-in-out_infinite];
+    &::before {
+      content: "";
+      @apply absolute left-1/2 -bottom-[55px] w-[70%] h-[25px] bg-black/10 rounded-[50%] blur-[7px] animate-[shrinking_5s_ease-in-out_infinite_0.15s];
+    }
+  }
+}
+@keyframes bouncing {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+}
+@keyframes shrinking {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(0.7);
+  }
+}

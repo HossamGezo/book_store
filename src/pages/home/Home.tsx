@@ -1,7 +1,11 @@
+// Components
+import HeroSection from "./components/hero-section/HeroSection";
+// Main Component
 const Home = () => {
+  // Return JSX
   return (
     <>
-      <h1>Home</h1>
+      <HeroSection />
     </>
   );
 };

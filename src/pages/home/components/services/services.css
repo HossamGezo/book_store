@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* --------------------- Infinite Slider Calculations ---------------------
+  --item-count: 7
+  --item-width: 300px
+  --item-gap  : 20px
+  // --- Note ------------------------------------------------
+  // Because we are going to double data so we need the length
+  // of the original data that's mean half width
+  // --- Note ------------------------------------------------
+  --half-width: 7 * (300px + 20px) = 7 * 320px = 2240px;
+ * --------------------------------------------------------------------------/
+
+
+:root {
+}
+
+/* --------------------- Slider Style ------------------------- */
+@layer components {
+  .services {
+    @apply overflow-hidden my-20;
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 10%,
+      white 90%,
+      transparent
+    );
+    /* --------------------- Global Variables --------------------- */
+    --item-count: 7;
+    --item-width: 300px;
+    --item-gap: 20px;
+    --half-width: calc(
+      var(--item-count) * (var(--item-width) + var(--item-gap))
+    );
+    .services-wrapper {
+      @apply flex w-max animate-[infinite-slider_20s_linear_infinite];
+      gap: var(--item-gap);
+      &:hover {
+        animation-play-state: paused;
+      }
+    }
+  }
+}
+
+/* --------------------- Infinite Slider Animation --------------------- */
+@keyframes infinite-slider {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--half-width)));
+  }
+}

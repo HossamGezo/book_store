@@ -18,7 +18,7 @@ const Card = ({...props}: CardType) => {
   const {price, rating, title, reviews, image, togglePopup, setTogglePopup} =
     props;
   return (
-    <div className="card group h-[500px] py-1.5 rounded-lg bg-white shadow-normal border-t-2 border-t-transparent hover:scale-[1.01] hover:-translate-y-1.5 hover:shadow-scale hover:border-t-2 hover:border-t-primary/65 transition-all duration-500">
+    <div className="card group h-[500px] w-[330px] lg:w-[311px] py-1.5 rounded-lg bg-white shadow-normal border-t-2 border-t-transparent hover:scale-[1.01] hover:-translate-y-1.5 hover:shadow-scale hover:border-t-2 hover:border-t-primary/65 transition-all duration-500">
       <div className="card-imge h-[60%] p-1 flex-center">
         <img
           src={`/images/books/${image}`}

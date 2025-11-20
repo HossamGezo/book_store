@@ -29,7 +29,7 @@
 /* General Classes */
 @layer components {
   .ccontainer {
-    @apply px-2 md:px-4 md:mx-auto;
+    @apply px-2 md:mx-auto;
   }
   @media (max-width: 575px) {
     .ccontainer {

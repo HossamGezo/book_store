@@ -12,7 +12,6 @@ const Popup = ({children, setTogglePopup}: PopupType) => {
   // Handle Click "Close Button"
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     const element = e.target as HTMLElement;
-    console.log(element);
     const isOverlay = element.classList.contains("popup-overlay");
     if (isOverlay) setTogglePopup((prev) => !prev);
   };

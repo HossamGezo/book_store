@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@layer components {
+  .products-slider-btns > * {
+    @apply absolute bg-(--color-primary)/90 text-white h-[100px] text-5xl p-2 rounded-md hidden;
+  }
+}
+@media (min-width: 992px) {
+  .products-slider-btns > * {
+    @apply block;
+    &:first-child {
+      @apply -left-2.5 -scale-x-100;
+    }
+    &:last-child {
+      @apply -right-2.5;
+    }
+  }
+}

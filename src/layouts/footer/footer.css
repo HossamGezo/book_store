@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@layer components {
+  .footer {
+    h3:not(.footer-social-media-title) {
+      @apply text-2xl font-medium border-b mb-5 pb-1.5 w-fit max-xl:mx-auto;
+    }
+    .footer-social-media {
+      .footer-social-media-list > * {
+        @apply text-3xl cursor-pointer transition-colors duration-500;
+      }
+    }
+    .footer-description-links > *:not(h3) {
+      @apply mb-2.5 transition-all duration-500 max-xl:text-center;
+      &:hover {
+        @apply underline;
+      }
+    }
+    .footer-description-address > *:not(h3) {
+      @apply flex items-center gap-2.5 mb-3.5 max-xl:justify-center;
+    }
+    .footer-description-about-us {
+      @apply text-justify;
+    }
+  }
+}

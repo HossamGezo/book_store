@@ -4,7 +4,7 @@ export type BooksProps = {
   rating: number;
   title: string;
   author: string;
-  reviews: string;
+  reviews: number;
   image: string;
   printLength: number;
   language: string;

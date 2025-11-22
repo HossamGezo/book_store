@@ -2,6 +2,7 @@
 import {AiOutlineClose} from "react-icons/ai";
 // Components
 import Button from "../buttons/Button";
+import {useEffect} from "react";
 // Type
 type PopupType = {
   children: React.ReactNode;
@@ -9,17 +10,39 @@ type PopupType = {
 };
 // Main Component
 const Popup = ({children, setTogglePopup}: PopupType) => {
-  // Handle Click "Close Button"
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    const element = e.target as HTMLElement;
-    const isOverlay = element.classList.contains("popup-overlay");
-    if (isOverlay) setTogglePopup((prev) => !prev);
+  // Disable Scroll On Open
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
+  // Handle Click on Overlay
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // e.target        => Any thing you clicked it
+    // e.currentTarget => The Element that hold click event : in this case it means "popup-verlay"
+    if (e.target === e.currentTarget) {
+      setTogglePopup(false);
+    }
   };
+  // Close on "Escape" key
+  useEffect(() => {
+    // Handle Escape Button Function
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setTogglePopup(false);
+    };
+    // Keydown Event
+    window.addEventListener("keydown", handleEsc);
+    // Clean Up
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  });
   // Return JSX
   return (
     <div
-      className="popup-overlay flex-center absolute inset-0 bg-black/75 z-50 overflow-hidden"
-      onClick={handleClick}
+      className="popup-overlay fixed inset-0 flex-center bg-black/75 z-50 overflow-hidden"
+      onClick={handleOverlayClick}
     >
       <div
         onClick={(e) => e.stopPropagation()}
@@ -31,7 +54,7 @@ const Popup = ({children, setTogglePopup}: PopupType) => {
           radius="full"
           variant="danger"
           className="close-btn flex-center absolute top-3 right-3"
-          onClick={() => setTogglePopup((prev) => !prev)}
+          onClick={() => setTogglePopup(false)}
         >
           <AiOutlineClose className="text-3xl" />
         </Button>

@@ -6,7 +6,6 @@ import Title from "@/components/ui/title/Title";
 import Card from "@/components/ui/card/Card";
 // Types
 import type {BooksProps} from "@/types";
-import Popup from "@/components/ui/popup/Popup";
 type ProductionSectionProps = {
   sortedArray: BooksProps[];
   title: string;
@@ -29,7 +28,6 @@ const ProductsSection = ({sortedArray, title}: ProductionSectionProps) => {
           />
         ))}
       </ProductsSlider>
-      {togglePopup && <Popup setTogglePopup={setTogglePopup}>Hossam</Popup>}
     </>
   );
 };

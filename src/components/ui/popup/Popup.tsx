@@ -6,10 +6,19 @@ import {useEffect} from "react";
 // Type
 type PopupType = {
   children: React.ReactNode;
-  setTogglePopup: React.Dispatch<React.SetStateAction<boolean>>;
+  togglePopup: {
+    isOpen: boolean;
+    id: number;
+  };
+  setTogglePopup: React.Dispatch<
+    React.SetStateAction<{
+      isOpen: boolean;
+      id: number;
+    }>
+  >;
 };
 // Main Component
-const Popup = ({children, setTogglePopup}: PopupType) => {
+const Popup = ({children, togglePopup, setTogglePopup}: PopupType) => {
   // Disable Scroll On Open
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -22,14 +31,14 @@ const Popup = ({children, setTogglePopup}: PopupType) => {
     // e.target        => Any thing you clicked it
     // e.currentTarget => The Element that hold click event : in this case it means "popup-verlay"
     if (e.target === e.currentTarget) {
-      setTogglePopup(false);
+      setTogglePopup({...togglePopup, isOpen: false});
     }
   };
   // Close on "Escape" key
   useEffect(() => {
     // Handle Escape Button Function
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setTogglePopup(false);
+      if (e.key === "Escape") setTogglePopup({...togglePopup, isOpen: false});
     };
     // Keydown Event
     window.addEventListener("keydown", handleEsc);
@@ -54,7 +63,7 @@ const Popup = ({children, setTogglePopup}: PopupType) => {
           radius="full"
           variant="danger"
           className="close-btn flex-center absolute top-3 right-3"
-          onClick={() => setTogglePopup(false)}
+          onClick={() => setTogglePopup({...togglePopup, isOpen: false})}
         >
           <AiOutlineClose className="text-3xl" />
         </Button>

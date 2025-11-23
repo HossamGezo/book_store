@@ -22,12 +22,12 @@ const Footer = () => {
             <h3 className="footer-social-media-title max-lg:text-2xl text-3xl font-bold">
               Follow us on social media
             </h3>
-            <div className="footer-social-media-list flex-center gap-3.5 bg-white max-lg:w-[200px] w-[300px] px-2.5 py-2.5 rounded-md text-secondary/75">
-              <FaInstagramSquare className="hover:text-[#E1306C]" />
-              <FaTelegram className="hover:text-[#0088cc]" />
-              <FaFacebookSquare className="hover:text-[#1877f2]" />
-              <BsYoutube className="hover:text-[#ff0000]" />
-              <BsTwitterX className="hover:text-[#333]" />
+            <div className="footer-social-media-list flex-center gap-5 bg-white max-lg:w-[200px] w-[300px] px-2.5 py-2.5 rounded-md text-secondary/75">
+              <FaInstagramSquare className="text-[#E1306C]" />
+              <FaTelegram className="text-[#0088cc]" />
+              <FaFacebookSquare className="text-[#1877f2]" />
+              <BsYoutube className="text-[#ff0000]" />
+              <BsTwitterX className="text-[#333]" />
             </div>
           </div>
           {/* Footer Description */}

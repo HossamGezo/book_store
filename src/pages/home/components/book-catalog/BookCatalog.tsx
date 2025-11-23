@@ -1,7 +1,5 @@
 // React
 import {useEffect, useState} from "react";
-// Styles
-import "./book-catalog.css";
 // Data
 import {books} from "../../data/books";
 // Components

@@ -1,4 +1,4 @@
-.title::before {
+.main-title::before {
   content: "";
   position: absolute;
   bottom: -5px;

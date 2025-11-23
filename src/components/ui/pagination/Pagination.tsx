@@ -24,7 +24,7 @@ const Pagination = ({paginateNumbers, page, setPage}: PaginationType) => {
   };
   // Return JSX
   return (
-    <div className="pagination border max-md:w-[40%] w-[50%] flex-center">
+    <div className="pagination mx-auto max-md:w-[40%] w-[50%] flex-center">
       <Button
         size="sm"
         radius="none"

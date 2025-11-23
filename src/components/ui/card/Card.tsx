@@ -3,6 +3,7 @@ import {FaEye} from "react-icons/fa";
 import {MdShoppingCart} from "react-icons/md";
 // Types
 type CardType = {
+  id: number
   price: number;
   rating: number;
   title: string;
@@ -15,7 +16,7 @@ type CardType = {
 import Rating from "../rating/Rating";
 // Main Component
 const Card = ({...props}: CardType) => {
-  const {price, rating, title, reviews, image, togglePopup, setTogglePopup} =
+  const {id, price, rating, title, reviews, image, togglePopup, setTogglePopup} =
     props;
   return (
     <div className="card relative group h-[500px] w-[330px] lg:w-[311px] py-1.5 rounded-lg bg-white shadow-normal border-t-2 border-t-transparent hover:scale-[1.01] hover:-translate-y-1.5 hover:shadow-scale hover:border-t-2 hover:border-t-primary/65 transition-all duration-500">
@@ -28,7 +29,7 @@ const Card = ({...props}: CardType) => {
         />
       </div>
       <div className="card-desc p-1.5">
-        <h3 className="card-title text-lg font-medium h-14">{title}</h3>
+        <h3 className="card-title text-lg font-medium h-14">{title}_{id}</h3>
         <div className="rating my-2.5">
           <div className="rating-and-reviews flex items-center gap-2.5">
             <Rating rating={rating} />

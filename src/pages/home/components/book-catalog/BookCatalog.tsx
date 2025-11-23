@@ -16,14 +16,19 @@ const BookCatalog = () => {
   // Pagination Logic
   useEffect(() => {
     const screenWidth = () => {
-      if (window.innerWidth <= 768) {
-        setCardsCount(5);
-      } else {
-        setCardsCount(8);
-        if (cardsCount === 5) setPage(4);
-      }
+      const newCount = window.innerWidth <= 768 ? 5 : 8;
+      // setCardsCount(newCount);
+      setCardsCount((prev) => {
+        if (prev !== newCount) {
+          setPage(1);
+          return newCount;
+        }
+        return prev;
+      });
     };
+    // Resize Listener
     window.addEventListener("resize", screenWidth);
+    // Clean Up Listener
     return () => {
       window.removeEventListener("resize", screenWidth);
     };

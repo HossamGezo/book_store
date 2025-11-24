@@ -23,7 +23,7 @@ const InputField = <T extends FieldValues>({
   const baseStyles =
     "w-[325px] h-[45px] bg-white border-b-2 border-b-secondary/75 focus:border-b-primary outline-0 px-1.5 py-2 caret-primary rounded-sm placeholder:text-secondary/30 placeholder:text-sm";
   return (
-    <>
+    <div className="customImput flex flex-col gap-1">
       <input
         type={type}
         {...props}
@@ -31,7 +31,7 @@ const InputField = <T extends FieldValues>({
         className={clsx(baseStyles, className)}
       />
       {error && <span className="text-sm text-red-400/85">{error}</span>}
-    </>
+    </div>
   );
 };
 export default InputField;

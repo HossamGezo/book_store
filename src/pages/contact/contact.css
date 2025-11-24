@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@layer components {
+  .contact {
+    @apply my-10 min-h-[calc(100vh-(73.88px+80px))];
+    .contact-address {
+      @apply flex max-md:flex-col gap-5 md:justify-between border-b-2 border-b-(--color-primary) pb-5 *:flex *:flex-col *:items-center *:gap-2.5;
+      div .icon {
+        @apply text-[28px] text-(--color-primary);
+      }
+      div span:nth-child(2) {
+        @apply text-xl text-(--color-primary);
+      }
+      div span:nth-child(3) {
+        @apply text-gray-500;
+      }
+    }
+    .contact-form {
+      @apply flex flex-col gap-2.5 pt-5 w-fit mx-auto mt-10;
+    }
+  }
+}

@@ -92,7 +92,7 @@ const Register = () => {
         Already have an account
         <Link
           to="/login"
-          className="underline text-blue-600 visited:text-purple-500 ml-0.5"
+          className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 ml-0.5"
         >
           Login
         </Link>

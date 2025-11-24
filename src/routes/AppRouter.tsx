@@ -3,7 +3,7 @@ import {createBrowserRouter, RouterProvider} from "react-router";
 // Components
 import MainLayout from "@/layouts/MainLayout";
 import BookDetails from "@/pages/book-details/BookDetails";
-import Error from "@/pages/error/Error";
+import NotFound from "@/pages/error/NotFound";
 import Home from "@/pages/home/Home";
 import Authors from "@/pages/authors/Authors";
 import About from "@/pages/about/About";
@@ -17,7 +17,6 @@ const AppRouter = () => {
     {
       path: "/",
       Component: MainLayout,
-      errorElement: <Error />,
       children: [
         {index: true, Component: Home},
         {
@@ -48,6 +47,7 @@ const AppRouter = () => {
           path: "login",
           Component: Login,
         },
+        {path: "*", Component: NotFound},
       ],
     },
   ]);

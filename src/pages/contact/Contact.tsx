@@ -34,6 +34,7 @@ const Contact = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: {errors},
   } = useForm<SchemaProps>({
     mode: "onChange",
@@ -42,6 +43,7 @@ const Contact = () => {
   // onSubmit Function
   const onSubmit: SubmitHandler<SchemaProps> = (data) => {
     console.log(data);
+    reset();
   };
   // Return JSX
   return (
@@ -76,6 +78,7 @@ const Contact = () => {
             name="name"
             register={register}
             error={errors.name?.message}
+            autoComplete="name"
           />
           <InputField
             type="text"
@@ -83,6 +86,7 @@ const Contact = () => {
             name="subject"
             register={register}
             error={errors.subject?.message}
+            autoComplete="off"
           />
           <InputField
             type="email"
@@ -90,17 +94,20 @@ const Contact = () => {
             name="email"
             register={register}
             error={errors.email?.message}
+            autoComplete="email"
           />
-          <textarea
-            className="resize-none xl:col-span-3 h-[300px] bg-white border-b-2 border-b-secondary/75 focus:border-b-primary outline-0 px-1.5 py-2 rounded-sm caret-primary placeholder:text-secondary/30"
-            placeholder="Your Message"
-            {...register("message")}
-          ></textarea>
-          {errors.message && (
-            <span className="text-sm text-red-400/85">
-              {errors.message?.message}
-            </span>
-          )}
+          <div className="flex flex-col gap-1 xl:col-span-3">
+            <textarea
+              className="resize-none h-[300px] bg-white border-b-2 border-b-secondary/75 focus:border-b-primary outline-0 px-1.5 py-2 rounded-sm caret-primary placeholder:text-secondary/30"
+              placeholder="Your Message"
+              {...register("message")}
+            ></textarea>
+            {errors.message && (
+              <span className="text-sm text-red-400/85">
+                {errors.message?.message}
+              </span>
+            )}
+          </div>
         </div>
         <Button type="submit">Send</Button>
       </form>

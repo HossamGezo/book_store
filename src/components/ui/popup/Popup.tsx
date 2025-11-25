@@ -4,6 +4,7 @@ import {AiOutlineClose} from "react-icons/ai";
 import Button from "../buttons/Button";
 import {useEffect} from "react";
 import {usePopupContext} from "@/context/PopupContext";
+import ProductPopup from "./ProductPopup";
 // Main Component
 const Popup = () => {
   // Use Popup Context Custom Hook
@@ -23,7 +24,6 @@ const Popup = () => {
     if (e.target === e.currentTarget) {
       setTogglePopup({...togglePopup, isOpen: false});
     }
-    console.log(togglePopup);
   };
   // Close on "Escape" key
   useEffect(() => {
@@ -41,11 +41,11 @@ const Popup = () => {
   // Return JSX
   return (
     <div
-      className="popup-overlay fixed inset-0 flex-center bg-black/75 z-50 overflow-hidden"
+      className="popup-overlay fixed -inset-1 flex-center bg-black/75 z-50 overflow-hidden"
       onClick={handleOverlayClick}
     >
-      <div className="popup-container relative max-md:w-[95%] w-[75%] h-[60vh] bg-white rounded-lg">
-        <div className="popup-content relative w-full h-full">{bookId}</div>
+      <div className="popup-container relative md:w-[600px] bg-white rounded-lg">
+        <div className="popup-content relative w-full h-full"><ProductPopup bookId={bookId}/></div>
         <Button
           size="circle"
           radius="full"

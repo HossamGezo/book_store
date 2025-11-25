@@ -1,14 +1,29 @@
 // Data
 import {books} from "@/pages/home/data/books";
 // React Router
-import {Link} from "react-router";
+import {useNavigate} from "react-router";
+// Custom Hook
+import {usePopupContext} from "@/context/PopupContext";
 // Components
 import Rating from "../rating/Rating";
 import Button from "../buttons/Button";
+type ProductPopupPros = {
+  bookId: number | null;
+};
 // Main Component
-const ProductPopup = ({bookId}: {bookId: number | null}) => {
+const ProductPopup = ({bookId}: ProductPopupPros) => {
+  // Custom Context
+  const {setTogglePopup} = usePopupContext();
   // Book
   const book = books.filter((book) => book.id === bookId)[0];
+  // Handle Navigate Function
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    setTogglePopup((prev) => {
+      return {...prev, isOpen: false}
+    });
+    navigate(`/book/${bookId}`);
+  };
   // Return JSX
   return (
     <div className="product-popup flex max-md:flex-col p-5">
@@ -60,9 +75,7 @@ const ProductPopup = ({bookId}: {bookId: number | null}) => {
           </Button>
         </div>
         {/* See More Details Button */}
-        <Button>
-          <Link to={`/book/:${bookId}`}>See More Details</Link>
-        </Button>
+        <Button onClick={handleNavigate}>See More Details</Button>
       </div>
     </div>
   );

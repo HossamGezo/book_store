@@ -39,9 +39,9 @@ const Button = ({
   };
   // Size Style
   const sizeStyles = {
-    sm: "px-3 py-1.5 h-[40px] text-sm font-bold w-[100px]",
-    md: "px-4 py-2 h-[50px] text-base font-bold w-[120px]",
-    lg: "px-6 py-3 h-[60px] text-lg font-bold w-[150px]",
+    sm: "px-3 py-1.5 h-[40px] text-sm font-bold w-fit",
+    md: "px-4 py-2 h-[50px] text-base font-bold w-fit",
+    lg: "px-6 py-3 h-[60px] text-lg font-bold w-fit",
     circle: "w-[50px] h-[50px]",
   };
   // Radius Styles

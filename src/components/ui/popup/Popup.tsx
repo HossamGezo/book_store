@@ -45,7 +45,9 @@ const Popup = () => {
       onClick={handleOverlayClick}
     >
       <div className="popup-container relative md:w-[600px] bg-white rounded-lg">
-        <div className="popup-content relative w-full h-full"><ProductPopup bookId={bookId}/></div>
+        <div className="popup-content relative w-full h-full">
+          <ProductPopup bookId={bookId} />
+        </div>
         <Button
           size="circle"
           radius="full"

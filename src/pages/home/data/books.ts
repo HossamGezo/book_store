@@ -3,7 +3,7 @@ export const books = [
     id: 1,
     price: 10.5,
     rating: 5,
-    title: "Atomic Habits:Proven Way To Build Good Habits",
+    title: "Atomic Habits: Proven Way To Build Good Habits",
     author: "James Clear",
     reviews: 69548,
     image: "atomic-habits.jpg",
@@ -11,6 +11,8 @@ export const books = [
     language: "English",
     PublicationDate: "16 April 2018",
     inStock: true,
+    description:
+      "No matter your goals, Atomic Habits offers a proven framework for improving--every day. James Clear reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results. If you're having trouble changing your habits, the problem isn't you. The problem is your system.",
   },
   {
     id: 2,
@@ -24,6 +26,8 @@ export const books = [
     language: "English",
     PublicationDate: "1 March 2015",
     inStock: true,
+    description:
+      "Aubrey Reed has secrets she needs to keep hidden, but when she walks into a Dallas art studio in search of a job, she doesn't expect to find the only guy who might be able to unlock them. An intensely moving novel about risking everything for love—and finding your heart's truth in the most unexpected places.",
   },
   {
     id: 3,
@@ -37,6 +41,8 @@ export const books = [
     language: "English",
     PublicationDate: "1 June 2019",
     inStock: true,
+    description:
+      "Liya Thakkar is a successful biochemical engineer, takeout enthusiast, and happily single woman. The moment she realizes her parents' latest dinner party is a setup with the man she hates, she walks out. A witty, romantic, and heartfelt story about breaking boundaries and finding love where you least expect it.",
   },
   {
     id: 4,
@@ -50,19 +56,23 @@ export const books = [
     language: "English",
     PublicationDate: "8 October 2012",
     inStock: true,
+    description:
+      "Sometimes, discovering the truth can leave you more hopeless than believing the lies. That’s what seventeen-year-old Sky realizes after she meets Dean Holder. A guy with a reputation that rivals her own and an uncanny ability to invoke feelings in her she’s never had before. A story that explores the dark side of love and the light that heals.",
   },
   {
     id: 5,
     price: 8,
     rating: 4,
     title: "Rich Dad Poor Dad",
-    author: "Robert T.Kiyosaki",
+    author: "Robert T. Kiyosaki",
     reviews: 8661,
     image: "rich-dad-poor-dad.jpg",
     printLength: 336,
     language: "English",
     PublicationDate: "27 April 2017",
     inStock: true,
+    description:
+      "It's time to explode the myth that you need to earn a high income to become rich. Robert Kiyosaki challenges the belief that your house is an asset and defines once and for all what an asset and a liability truly are. This book is the starting point for anyone looking to gain control of their financial future.",
   },
   {
     id: 6,
@@ -76,19 +86,23 @@ export const books = [
     language: "English",
     PublicationDate: "17 July 2016",
     inStock: true,
+    description:
+      "In her twenties, Emma Blair marries her high school sweetheart, Jesse. They build a life for themselves, far away from the expectations of their parents. But when Jesse disappears in a helicopter crash, Emma is forced to start over. Years later, she finds love again, only to receive a phone call that changes everything: Jesse is alive. A breathtaking story about having to choose between who you were and who you are.",
   },
   {
     id: 7,
     price: 11.05,
     rating: 4.5,
     title: "Think And Grow Rich",
-    author: "Napolen Hill",
+    author: "Napoleon Hill",
     reviews: 57521,
     image: "think-and-grow-rich.jpg",
     printLength: 320,
     language: "English",
     PublicationDate: "1 September 2005",
     inStock: true,
+    description:
+      "This is the grandfather of all motivational literature. It was the first book to boldly ask, 'What makes a winner?' The man who asked and listened for the answer, Napoleon Hill, is now counted in the top ranks of the world's winners himself. Learn the secrets of wealth-building that have changed millions of lives.",
   },
   {
     id: 8,
@@ -102,6 +116,8 @@ export const books = [
     language: "English",
     PublicationDate: "23 March 2017",
     inStock: true,
+    description:
+      "A former international hostage negotiator for the FBI offers a new, field-tested approach to high-stakes negotiations—whether in the boardroom or at home. Life is a series of negotiations; you should be prepared for them. This book gives you the competitive edge in any discussion.",
   },
   {
     id: 9,
@@ -115,6 +131,8 @@ export const books = [
     language: "English",
     PublicationDate: "4 December 2018",
     inStock: true,
+    description:
+      "How can you learn to truly love yourself? How can you transform negative emotions into positive ones? Vex King answers these questions and more. Join the self-love revolution and learn how to manifest your goals, overcome fear, and find your higher purpose.",
   },
   {
     id: 10,
@@ -128,6 +146,8 @@ export const books = [
     language: "English",
     PublicationDate: "16 April 2018",
     inStock: false,
+    description:
+      "Written by a celebrated contemporary artist and best-selling author, this book offers a comprehensive and contemporary guide to the time-honored tradition of the atelier. It breaks down the process of drawing into manageable steps, making the art of classical drawing accessible to everyone.",
   },
   {
     id: 11,
@@ -141,6 +161,8 @@ export const books = [
     language: "English",
     PublicationDate: "1 May 1993",
     inStock: true,
+    description:
+      "A magical fable about following your dream. The story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure, teaches us about the essential wisdom of listening to our hearts, of recognizing opportunity and learning to read the omens strewn along life's path.",
   },
   {
     id: 12,
@@ -154,6 +176,8 @@ export const books = [
     language: "English",
     PublicationDate: "13 September 2016",
     inStock: true,
+    description:
+      "In this generation-defining self-help guide, a superstar blogger cuts through the crap to show us how to stop trying to be 'positive' all the time so that we can truly become better, happier people. It's a refreshing slap for a generation to help them lead contented, grounded lives.",
   },
   {
     id: 13,
@@ -167,6 +191,8 @@ export const books = [
     language: "English",
     PublicationDate: "1 September 2020",
     inStock: true,
+    description:
+      "Doing well with money isn’t necessarily about what you know. It’s about how you behave. And behavior is hard to teach, even to really smart people. Morgan Housel shares 19 short stories exploring the strange ways people think about money and teaches you how to make better sense of one of life’s most important topics.",
   },
   {
     id: 14,
@@ -180,6 +206,8 @@ export const books = [
     language: "English",
     PublicationDate: "18 October 2022",
     inStock: true,
+    description:
+      "Before 'It Ends with Us', it started with Atlas. Colleen Hoover tells fan favorite Atlas’s side of the story and shares what comes next in this long-anticipated sequel to the glorious and touching (USA TODAY) 'It Ends With Us'. A story about second chances and the enduring power of love.",
   },
   {
     id: 15,
@@ -193,6 +221,8 @@ export const books = [
     language: "English",
     PublicationDate: "1 September 2000",
     inStock: true,
+    description:
+      "Amoral, cunning, ruthless, and instructive, this multi-million-copy New York Times bestseller is the definitive manual for anyone interested in gaining, observing, or defending against ultimate control. Drawn from 3,000 years of the history of power, this is the guide to modern manipulation.",
   },
   {
     id: 16,
@@ -206,6 +236,8 @@ export const books = [
     language: "English",
     PublicationDate: "1 June 2020",
     inStock: true,
+    description:
+      "This book is about self-sabotage. Why we do it, when we do it, and how to stop doing it—for good. Coexisting but conflicting needs create self-sabotaging behaviors. This is why we resist efforts to change, often until they feel completely futile. But by extracting crucial insight from our most damaging habits, building emotional intelligence, and releasing past experiences, we can step out of our own way.",
   },
   {
     id: 17,
@@ -219,6 +251,8 @@ export const books = [
     language: "English",
     PublicationDate: "14 June 2016",
     inStock: true,
+    description:
+      "The instant New York Times bestseller. Ryan Holiday shows us how and why ego is such a powerful internal opponent to be guarded against at all stages of our careers and lives, and that we can only be humble in our aspirations, gracious in our success and resilient in our failures. It's an inspiring reminder to stay grounded.",
   },
   {
     id: 18,
@@ -232,6 +266,8 @@ export const books = [
     language: "English",
     PublicationDate: "9 October 2018",
     inStock: true,
+    description:
+      "Leadership is not about titles, status, and wielding power. A leader is anyone who takes responsibility for recognizing the potential in people and ideas, and has the courage to develop that potential. Brené Brown uses research, stories, and examples to answer the question: How do you cultivate braver, more daring leaders?",
   },
   {
     id: 19,
@@ -245,6 +281,8 @@ export const books = [
     language: "English",
     PublicationDate: "15 November 2018",
     inStock: true,
+    description:
+      "For David Goggins, childhood was a nightmare—poverty, prejudice, and physical abuse colored his days and haunted his nights. But through self-discipline, mental toughness, and hard work, Goggins transformed himself from a depressed, overweight young man with no future into a US Armed Forces icon and one of the world's top endurance athletes.",
   },
   {
     id: 20,
@@ -258,6 +296,8 @@ export const books = [
     language: "English",
     PublicationDate: "4 April 2017",
     inStock: true,
+    description:
+      "Based on a Navy SEAL's inspiring graduation speech, this #1 New York Times bestseller offers powerful life lessons. If you want to change the world, start by making your bed. Admiral McRaven reveals the ten principles that helped him overcome challenges not only in his training and long Naval career, but also throughout his life.",
   },
   {
     id: 21,
@@ -271,6 +311,8 @@ export const books = [
     language: "English",
     PublicationDate: "1 October 1936",
     inStock: true,
+    description:
+      "You can go after the job you want—and get it! You can take the job you have—and improve it! Dale Carnegie’s rock-solid, time-tested advice has carried countless people up the ladder of success in their business and personal lives. Learn the six ways to make people like you, the twelve ways to win people to your way of thinking, and the nine ways to change people without arousing resentment.",
   },
   {
     id: 22,
@@ -284,6 +326,8 @@ export const books = [
     language: "English",
     PublicationDate: "20 February 2018",
     inStock: true,
+    description:
+      "Born to survivalists in the mountains of Idaho, Tara Westover was seventeen the first time she set foot in a classroom. Her family was so isolated from society that there was no one to ensure the children received an education. When one of her brothers got himself into college, Tara decided to try a new kind of life. Her quest for knowledge transformed her, taking her over oceans and across continents.",
   },
   {
     id: 23,
@@ -297,6 +341,8 @@ export const books = [
     language: "English",
     PublicationDate: "13 November 2018",
     inStock: true,
+    description:
+      "In a life filled with meaning and accomplishment, Michelle Obama has emerged as one of the most iconic and compelling women of our era. In her memoir, a work of deep reflection and mesmerizing storytelling, she invites readers into her world, chronicling the experiences that have shaped her—from her childhood on the South Side of Chicago to her years as an executive balancing the demands of motherhood and work, to her time spent at the world's most famous address.",
   },
   {
     id: 24,
@@ -310,6 +356,8 @@ export const books = [
     language: "English",
     PublicationDate: "7 November 1997",
     inStock: true,
+    description:
+      "In The Four Agreements, don Miguel Ruiz reveals the source of self-limiting beliefs that rob us of joy and create needless suffering. Based on ancient Toltec wisdom, the Four Agreements offer a powerful code of conduct that can rapidly transform our lives to a new experience of freedom, true happiness, and love.",
   },
   {
     id: 25,
@@ -323,6 +371,8 @@ export const books = [
     language: "English",
     PublicationDate: "1 October 1999",
     inStock: true,
+    description:
+      "To make the journey into the Now we will need to leave our analytical mind and its false created self, the ego, behind. From the very first page of this extraordinary book, we move rapidly into a significantly higher altitude where we breathe a lighter air. We become connected to the indestructible essence of our Being, 'The Eternal, Ever Present One Life'.",
   },
   {
     id: 26,
@@ -336,6 +386,8 @@ export const books = [
     language: "English",
     PublicationDate: "5 January 2016",
     inStock: true,
+    description:
+      "Deep work is the ability to focus without distraction on a cognitively demanding task. It's a skill that allows you to quickly master complicated information and produce better results in less time. Deep work will make you better at what you do and provide the sense of true fulfillment that comes from craftsmanship. Cal Newport flips the narrative on impact in a connected age.",
   },
   {
     id: 27,
@@ -349,6 +401,8 @@ export const books = [
     language: "English",
     PublicationDate: "1 June 1959",
     inStock: true,
+    description:
+      "Psychiatrist Viktor Frankl's memoir has riveted generations of readers with its descriptions of life in Nazi death camps and its lessons for spiritual survival. Based on his own experience and the stories of his patients, Frankl argues that we cannot avoid suffering but we can choose how to cope with it, find meaning in it, and move forward with renewed purpose.",
   },
   {
     id: 28,
@@ -362,6 +416,8 @@ export const books = [
     language: "English",
     PublicationDate: "28 February 2012",
     inStock: true,
+    description:
+      "In The Power of Habit, award-winning business reporter Charles Duhigg takes us to the thrilling edge of scientific discoveries that explain why habits exist and how they can be changed. Distilling vast amounts of information into engrossing narratives that take us from the boardrooms of Procter & Gamble to the sidelines of the NFL to the front lines of the civil rights movement, Duhigg presents a whole new understanding of human nature and its potential.",
   },
   {
     id: 29,
@@ -375,6 +431,8 @@ export const books = [
     language: "English",
     PublicationDate: "18 November 2008",
     inStock: true,
+    description:
+      "In this stunning book, Malcolm Gladwell takes us on an intellectual journey through the world of 'outliers'--the best and the brightest, the most famous and the most successful. He asks the question: what makes high-achievers different? His answer is that we pay too much attention to what successful people are like, and too little attention to where they are from: that is, their culture, their family, their generation, and the idiosyncratic experiences of their upbringing.",
   },
   {
     id: 30,
@@ -388,6 +446,8 @@ export const books = [
     language: "English",
     PublicationDate: "2 May 2013",
     inStock: true,
+    description:
+      "The Art of Thinking Clearly by world-class thinker and entrepreneur Rolf Dobelli is an eye-opening look at human psychology and reasoning -- essential reading for anyone who wants to avoid 'cognitive errors' and make better choices in all aspects of their lives. Have you ever: Invested time in something that, with hindsight, just wasn't worth it? Or continued doing something you knew was bad for you? These are examples of cognitive biases.",
   },
   {
     id: 31,
@@ -401,6 +461,8 @@ export const books = [
     language: "English",
     PublicationDate: "28 February 2006",
     inStock: true,
+    description:
+      "After decades of research, world-renowned Stanford University psychologist Carol S. Dweck, Ph.D., discovered a simple but groundbreaking idea: the power of mindset. In this brilliant book, she shows how success in school, work, sports, the arts, and almost every area of human endeavor can be dramatically influenced by how we think about our talents and abilities. People with a fixed mindset are less likely to flourish than those with a growth mindset.",
   },
   {
     id: 32,
@@ -414,5 +476,7 @@ export const books = [
     language: "English",
     PublicationDate: "3 May 2016",
     inStock: true,
+    description:
+      "In this instant New York Times bestseller, Angela Duckworth shows anyone striving to succeed that the secret to outstanding achievement is not talent, but a special blend of passion and persistence she calls 'grit'. Drawing on her own powerful story as the daughter of a scientist who frequently noted her lack of 'genius', Duckworth describes her winding path to becoming a celebrated researcher and professor.",
   },
 ];

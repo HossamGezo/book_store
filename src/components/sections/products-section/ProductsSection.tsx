@@ -1,5 +1,3 @@
-// React
-import {useState} from "react";
 // Components
 import ProductsSlider from "@/components/ui/products-slider/ProductsSlider";
 import Title from "@/components/ui/title/Title";
@@ -12,7 +10,6 @@ type ProductionSectionProps = {
 };
 // Main Component
 const ProductsSection = ({sortedArray, title}: ProductionSectionProps) => {
-  const [togglePopup, setTogglePopup] = useState(false);
   return (
     <>
       <div className="ccontainer flex-center">
@@ -23,8 +20,6 @@ const ProductsSection = ({sortedArray, title}: ProductionSectionProps) => {
           <Card
             key={book.id}
             {...book}
-            togglePopup={togglePopup}
-            setTogglePopup={setTogglePopup}
           />
         ))}
       </ProductsSlider>

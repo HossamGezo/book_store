@@ -41,7 +41,7 @@ const Header = () => {
           <div className="header-logo select-none">
             <img
               src={Logo}
-              alt="IMAGE"
+              alt="Book Store Logo"
               className="boject-contain"
               draggable="false"
             />

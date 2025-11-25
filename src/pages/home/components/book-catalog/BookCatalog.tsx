@@ -10,7 +10,6 @@ import Title from "@/components/ui/title/Title";
 const BookCatalog = () => {
   const [page, setPage] = useState(1);
   const [cardsCount, setCardsCount] = useState<5 | 8>(5);
-  const [togglePopup, setTogglePopup] = useState(false);
   // Pagination Logic
   useEffect(() => {
     const screenWidth = () => {
@@ -45,8 +44,6 @@ const BookCatalog = () => {
             <Card
               key={book.id}
               {...book}
-              togglePopup={togglePopup}
-              setTogglePopup={setTogglePopup}
             />
           ))}
         </div>

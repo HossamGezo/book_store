@@ -1,5 +1,5 @@
-// React
-import {useState} from "react";
+// Custom Hook
+import {usePopupContext} from "@/context/PopupContext";
 // Components
 import HeroSection from "./components/hero-section/HeroSection";
 import Services from "./components/services/Services";
@@ -9,8 +9,8 @@ import TopRated from "./components/top-rated/TopRated";
 import Popup from "@/components/ui/popup/Popup";
 // Main Component
 const Home = () => {
-  // popUp State
-  const [togglePopup, setTogglePopup] = useState({isOpen: false, id: 1});
+  // Use Custom Hook Popup Context
+  const {togglePopup} = usePopupContext();
   // Return JSX
   return (
     <>
@@ -19,11 +19,7 @@ const Home = () => {
       <MostGifted />
       <BookCatalog />
       <TopRated />
-      {togglePopup.isOpen && (
-        <Popup togglePopup={togglePopup} setTogglePopup={setTogglePopup}>
-          {togglePopup.id}
-        </Popup>
-      )}
+      {togglePopup.isOpen && <Popup />}
     </>
   );
 };

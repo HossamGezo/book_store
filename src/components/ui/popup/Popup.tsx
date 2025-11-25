@@ -3,22 +3,12 @@ import {AiOutlineClose} from "react-icons/ai";
 // Components
 import Button from "../buttons/Button";
 import {useEffect} from "react";
-// Type
-type PopupType = {
-  children: React.ReactNode;
-  togglePopup: {
-    isOpen: boolean;
-    id: number;
-  };
-  setTogglePopup: React.Dispatch<
-    React.SetStateAction<{
-      isOpen: boolean;
-      id: number;
-    }>
-  >;
-};
+import {usePopupContext} from "@/context/PopupContext";
 // Main Component
-const Popup = ({children, togglePopup, setTogglePopup}: PopupType) => {
+const Popup = () => {
+  // Use Popup Context Custom Hook
+  const {togglePopup, setTogglePopup} = usePopupContext();
+  const {bookId} = togglePopup;
   // Disable Scroll On Open
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -33,6 +23,7 @@ const Popup = ({children, togglePopup, setTogglePopup}: PopupType) => {
     if (e.target === e.currentTarget) {
       setTogglePopup({...togglePopup, isOpen: false});
     }
+    console.log(togglePopup);
   };
   // Close on "Escape" key
   useEffect(() => {
@@ -46,18 +37,15 @@ const Popup = ({children, togglePopup, setTogglePopup}: PopupType) => {
     return () => {
       window.removeEventListener("keydown", handleEsc);
     };
-  });
+  }, [setTogglePopup, togglePopup]);
   // Return JSX
   return (
     <div
       className="popup-overlay fixed inset-0 flex-center bg-black/75 z-50 overflow-hidden"
       onClick={handleOverlayClick}
     >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="popup-container relative max-md:w-[95%] w-[75%] h-[60vh] bg-white rounded-lg"
-      >
-        <div className="popup-content relative w-full h-full">{children}</div>
+      <div className="popup-container relative max-md:w-[95%] w-[75%] h-[60vh] bg-white rounded-lg">
+        <div className="popup-content relative w-full h-full">{bookId}</div>
         <Button
           size="circle"
           radius="full"

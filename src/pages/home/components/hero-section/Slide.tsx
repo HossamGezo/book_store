@@ -15,7 +15,7 @@ const Slide = ({gradient, image, title, desc}: SlideProps) => {
       <div className="slide-image-container w-[335px] xl:w-[450px] select-none">
         <img
           src={image}
-          alt="IMAGE"
+          alt={title}
           className="slide-image object-contain"
           draggable="false"
         />

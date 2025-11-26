@@ -5,7 +5,7 @@ import "./button.css";
 // Types
 type ButtonTypeOption = "button" | "submit" | "reset";
 type ButtonVariant = "primary" | "secondary" | "danger";
-type ButtonSize = "sm" | "md" | "lg" | "circle";
+type ButtonSize = "xs" | "sm" | "md" | "lg" | "circle";
 type ButtonRadius = "none" | "sm" | "md" | "lg" | "full";
 // Main Type
 type ButtonType = {
@@ -39,6 +39,7 @@ const Button = ({
   };
   // Size Style
   const sizeStyles = {
+    xs: "px-1.5 h-[25px]",
     sm: "px-3 py-1.5 h-[40px] text-sm font-bold w-fit",
     md: "px-4 py-2 h-[50px] text-base font-bold w-fit",
     lg: "px-6 py-3 h-[60px] text-lg font-bold w-fit",
@@ -47,6 +48,7 @@ const Button = ({
   // Radius Styles
   const radiusStyles = {
     none: "rounded-none",
+    xs: "rounded-xs",
     sm: "rounded-sm",
     md: "rounded-md",
     lg: "rounded-lg",

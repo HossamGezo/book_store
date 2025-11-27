@@ -1,3 +1,5 @@
+// React
+import {useState} from "react";
 // React Icons
 import {MdOutlineInsertPageBreak} from "react-icons/md";
 import {GrLanguage} from "react-icons/gr";
@@ -8,10 +10,23 @@ import {useParams} from "react-router";
 import {books} from "../home/data/books";
 import Rating from "@/components/ui/rating/Rating";
 import Button from "@/components/ui/buttons/Button";
+// Custom Hooks
+import {useCartContext} from "@/context/CartContext";
 // Main Component
 const BookDetails = () => {
+  // React Hooks
+  const [quantity, setQuantity] = useState<number>(1);
+  // Custom Hooks
+  const {dispatch} = useCartContext();
+  // addToCart Function
+  const addToCart = (id: number) => {
+    const amountToAdd = quantity < 1 ? 1 : quantity;
+    dispatch({type: "ADD_TO_CART", payload: {id: id, amount: amountToAdd}});
+    setQuantity(amountToAdd);
+  };
+  // Book To Show
   const {id} = useParams();
-  const book = books.filter((book) => book.id === +id!)[0];
+  const book = books.find((book) => book.id === +id!);
   if (!book) {
     return (
       <div className="ccontainer flex-center text-5xl text-red-500 h-screen">
@@ -60,10 +75,18 @@ const BookDetails = () => {
           {/* Book Details Cart */}
           <div className="book-details-cart flex items-center gap-5 my-5">
             <input
+              min={1}
               type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(+e.target.value)}
               className="w-[150px] py-1.5 h-10 bg-white border-2 border-secondary/75 focus:border-primary outline-0 px-1.5 caret-primary rounded-sm placeholder:text-secondary/30 placeholder:text-sm"
             />
-            <Button variant="secondary" size="sm" className="shrink-0">
+            <Button
+              variant="secondary"
+              size="sm"
+              className="shrink-0"
+              onClick={() => addToCart(book.id)}
+            >
               Add To Cart
             </Button>
           </div>
@@ -76,17 +99,23 @@ const BookDetails = () => {
       {/* Book Details public Information */}
       <div className="book-details-public-information grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-10 *:flex *:flex-col *:items-center *:gap-2.5">
         <div className="book-details-public-information-print-length">
-          <span className="font-bold bg-blue-100 px-5 py-1.5 rounded-sm">Print Length</span>
+          <span className="font-bold bg-blue-100 px-5 py-1.5 rounded-sm">
+            Print Length
+          </span>
           <MdOutlineInsertPageBreak className="text-4xl text-primary" />
           <span className="text-secondary">{book.printLength} Pages</span>
         </div>
         <div className="book-details-public-information-language">
-          <span className="font-bold bg-blue-100 px-2.5 py-1.5 rounded-sm">Language</span>
+          <span className="font-bold bg-blue-100 px-2.5 py-1.5 rounded-sm">
+            Language
+          </span>
           <GrLanguage className="text-4xl text-primary" />
           <span className="text-secondary">{book.language}</span>
         </div>
         <div className="book-details-public-information-publication-date">
-          <span className="font-bold bg-blue-100 px-2.5 py-1.5 rounded-sm">Publication Date</span>
+          <span className="font-bold bg-blue-100 px-2.5 py-1.5 rounded-sm">
+            Publication Date
+          </span>
           <HiCalendarDateRange className="text-4xl text-primary" />
           <span className="text-secondary">{book.PublicationDate}</span>
         </div>

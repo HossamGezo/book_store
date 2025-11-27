@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 // React
 import {createContext, useContext, useState} from "react";
 // Types
@@ -31,10 +32,10 @@ const PopupContextProvider = ({children}: PopupContextProviderProps) => {
   );
 };
 // usePopupContext Hook
-// eslint-disable-next-line react-refresh/only-export-components
 export const usePopupContext = () => {
   const context = useContext(PopupContext);
-  if (!context) throw Error("usePopupContext must be used within a PopupContextProvider")
+  if (!context)
+    throw Error("usePopupContext must be used within a PopupContextProvider");
   return context;
 };
 export default PopupContextProvider;

@@ -1,21 +1,32 @@
+// Custom Hooks
+import {useCartContext} from "@/context/CartContext";
 // React Icons
 import {FaPlus, FaMinus} from "react-icons/fa6";
 import {MdDeleteForever} from "react-icons/md";
-// Data
-import {books} from "../home/data/books";
+// Components
 import Button from "@/components/ui/buttons/Button";
 import Rating from "@/components/ui/rating/Rating";
 // Main Component
 const Cart = () => {
-  const cart = books.slice(0, 5);
-  // Handle Amound Function
-  const handleAmount = ({id, type}: {id: number; type: string}) => {
-    console.log(id, type);
+  // Custom Hooks
+  const {state, dispatch} = useCartContext();
+  // Handle Increase Function
+  const handleIncrease = (id: number) => {
+    dispatch({type: "INCREASE", payload: {id: id, amount: 1}});
+  };
+  // Handle Decrease Function
+  const handleDecrease = (id: number) => {
+    dispatch({type: "DECREASE", payload: {id: id, amount: 1}});
   };
   // Handle Delete Function
   const handleDelete = (id: number) => {
-    console.log(id);
+    dispatch({type: "DELETE_FROM_CART", payload: {id: id, amount: 1}});
   };
+  // Sum Logic
+  const result = state.map((product) => product.price * product.amount);
+  const total = result.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
   // Return JSX
   return (
     <div className="cart my-10">
@@ -26,8 +37,11 @@ const Cart = () => {
         <div className="cart-layout grid grid-cols-5 gap-10">
           {/* Cart Products */}
           <div className="cart-products bg-blue-100 p-5 rounded-lg flex flex-col gap-5 h-[75vh] overflow-y-auto col-span-5 xl:col-span-3">
-            {cart.map((product) => (
-              <div className="cart-product-wrapper relative bg-white p-5 rounded-lg grid grid-cols-5 place-items-center gap-5">
+            {state.map((product) => (
+              <div
+                key={product.id}
+                className="cart-product-wrapper relative bg-white p-5 rounded-lg grid grid-cols-5 place-items-center gap-5"
+              >
                 {/* Cart Product Image */}
                 <div className="cart-product-image place-self-start max-md:col-span-2">
                   <img
@@ -70,21 +84,17 @@ const Cart = () => {
                     <Button
                       size="xs"
                       variant="secondary"
-                      onClick={() =>
-                        handleAmount({id: product.id, type: "increase"})
-                      }
+                      onClick={() => handleIncrease(product.id)}
                     >
                       <FaPlus className="text-xl" />
                     </Button>
                     <span className="cart-prodcut-amount-digit font-medium text-xl bg-blue-100/50 w-[50px] px-0.5 py-0.5 text-center rounded-sm font-jetbrains">
-                      1
+                      {product.amount}
                     </span>
                     <Button
                       size="xs"
                       variant="danger"
-                      onClick={() =>
-                        handleAmount({id: product.id, type: "decrease"})
-                      }
+                      onClick={() => handleDecrease(product.id)}
                     >
                       <FaMinus className="text-xl" />
                     </Button>
@@ -108,19 +118,19 @@ const Cart = () => {
             <div className="order-summary-details bg-white rounded-lg p-2.5 mb-5 *:flex *items-center *:justify-between *:not-last:border-b *:border-b-blue-200 *:py-2.5">
               <div className="cart-summary-subtotal">
                 <span className="font-medium">Subtotal</span>
-                <span>$14.00</span>
+                <span>${total.toFixed(2)}</span>
               </div>
               <div className="cart-summary-shipping-cost">
                 <span className="font-medium">Shipping Cost</span>
-                <span>0</span>
+                <span className="text-green-700">Free</span>
               </div>
               <div className="cart-summary-discount">
                 <span className="font-medium">Discount</span>
-                <span>0</span>
+                <span className="text-green-700">5%</span>
               </div>
               <div className="cart-summary-total">
                 <span className="font-medium">Total</span>
-                <span>$14.00</span>
+                <span>${(total - total * 0.05).toFixed(2)}</span>
               </div>
             </div>
             <Button size="sm">Pay Now</Button>

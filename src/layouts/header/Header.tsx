@@ -1,5 +1,7 @@
 // React
 import {useEffect, useState} from "react";
+// Custom Hooks
+import {useCartContext} from "@/context/CartContext";
 // React Router
 import {Link} from "react-router";
 // React Icons
@@ -13,6 +15,8 @@ import Logo from "../../../public/favicon.svg";
 import NavBar from "./NavBar";
 // Main Component
 const Header = () => {
+  // Custom Hooks
+  const {state} = useCartContext();
   // Toggle Bar
   const [toggleBar, setToggleBar] = useState(false);
   // Toogle Trigger
@@ -67,7 +71,7 @@ const Header = () => {
             <span className="relative font-jetbrains font-bold">
               Cart
               <span className="absolute text-lg w-7 h-7 font-bold -top-5 left-1/2 -translate-x-1/2 rounded-full flex-center text-green-300">
-                10
+                {state?.length}
               </span>
             </span>
           </div>

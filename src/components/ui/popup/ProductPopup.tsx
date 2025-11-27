@@ -1,9 +1,12 @@
+// React
+import {useState} from "react";
 // Data
 import {books} from "@/pages/home/data/books";
 // React Router
 import {useNavigate} from "react-router";
 // Custom Hook
 import {usePopupContext} from "@/context/PopupContext";
+import {useCartContext} from "@/context/CartContext";
 // Components
 import Rating from "../rating/Rating";
 import Button from "../buttons/Button";
@@ -12,17 +15,27 @@ type ProductPopupPros = {
 };
 // Main Component
 const ProductPopup = ({bookId}: ProductPopupPros) => {
-  // Custom Context
+  // React Hooks
+  const [quantity, setQuantity] = useState<number>(1);
+  // Custom Hooks
   const {setTogglePopup} = usePopupContext();
+  const {dispatch} = useCartContext();
   // Book
-  const book = books.filter((book) => book.id === bookId)[0];
+  const book = books.find((b) => b.id === bookId);
+  if (!book) throw Error("Book Isn't Exist");
   // Handle Navigate Function
   const navigate = useNavigate();
   const handleNavigate = () => {
     setTogglePopup((prev) => {
-      return {...prev, isOpen: false}
+      return {...prev, isOpen: false};
     });
     navigate(`/book/${bookId}`);
+  };
+  // addToCart Function
+  const addToCart = (id: number) => {
+    const amountToAdd = quantity < 1 ? 1 : quantity;
+    dispatch({type: "ADD_TO_CART", payload: {id: id, amount: amountToAdd}});
+    setQuantity(amountToAdd);
   };
   // Return JSX
   return (
@@ -67,10 +80,18 @@ const ProductPopup = ({bookId}: ProductPopupPros) => {
         {/* Product Popup Cart */}
         <div className="prodcut-popup-cart flex items-center gap-5 my-5">
           <input
+            min={1}
             type="number"
+            value={quantity}
+            onChange={(e) => setQuantity(+e.target.value)}
             className="w-[150px] py-1.5 h-10 bg-white border-2 border-secondary/75 focus:border-primary outline-0 px-1.5 caret-primary rounded-sm placeholder:text-secondary/30 placeholder:text-sm"
           />
-          <Button variant="secondary" size="sm" className="shrink-0">
+          <Button
+            variant="secondary"
+            size="sm"
+            className="shrink-0"
+            onClick={() => addToCart(book.id)}
+          >
             Add To Cart
           </Button>
         </div>

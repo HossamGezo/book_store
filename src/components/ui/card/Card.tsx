@@ -3,21 +3,20 @@ import {FaEye} from "react-icons/fa";
 import {MdShoppingCart} from "react-icons/md";
 // Custom Hook
 import {usePopupContext} from "@/context/PopupContext";
+import {useCartContext} from "@/context/CartContext";
 // Types
-type CardType = {
-  id: number;
-  price: number;
-  rating: number;
-  title: string;
-  reviews: number;
-  image: string;
-};
+import {type BooksProps} from "@/types";
 // Components
 import Rating from "../rating/Rating";
 // Main Component
-const Card = ({id, price, rating, title, reviews, image}: CardType) => {
-  // Use Popup Context Custom Hook
+const Card = ({id, price, rating, title, reviews, image}: BooksProps) => {
+  // Custom Hooks
   const {setTogglePopup} = usePopupContext();
+  const {dispatch} = useCartContext();
+  // addToCart Function
+  const addToCart = (id: number) => {
+    dispatch({type: "ADD_TO_CART", payload: {id: id, amount: 1}});
+  };
   // Return JSX
   return (
     <div className="card relative group h-[500px] w-[330px] lg:w-[311px] py-1.5 rounded-lg bg-white shadow-normal border-t-2 border-t-transparent hover:scale-[1.01] hover:-translate-y-1.5 hover:shadow-scale hover:border-t-2 hover:border-t-primary/65 transition-all duration-500">
@@ -30,7 +29,9 @@ const Card = ({id, price, rating, title, reviews, image}: CardType) => {
         />
       </div>
       <div className="card-desc p-1.5">
-        <h3 className="card-title text-lg font-medium h-14">{title}_{id}</h3>
+        <h3 className="card-title text-lg font-medium h-14">
+          {title}_{id}
+        </h3>
         <div className="rating my-2.5">
           <div className="rating-and-reviews flex items-center gap-2.5">
             <Rating rating={rating} />
@@ -50,7 +51,10 @@ const Card = ({id, price, rating, title, reviews, image}: CardType) => {
             className="text-primary/65 hover:text-primary cursor-pointer"
             onClick={() => setTogglePopup({isOpen: true, bookId: id})}
           />
-          <MdShoppingCart className="text-green-600/65 hover:text-green-600 cursor-pointer" />
+          <MdShoppingCart
+            onClick={() => addToCart(id)}
+            className="text-green-600/65 hover:text-green-600 cursor-pointer"
+          />
         </div>
       </div>
     </div>

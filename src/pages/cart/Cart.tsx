@@ -1,8 +1,10 @@
-// Custom Hooks
-import {useCartContext} from "@/context/CartContext";
 // React Icons
 import {FaPlus, FaMinus} from "react-icons/fa6";
 import {MdDeleteForever} from "react-icons/md";
+// React Hot Toast
+import toast from "react-hot-toast";
+// Custom Hooks
+import {useCartContext} from "@/context/CartContext";
 // Components
 import Button from "@/components/ui/buttons/Button";
 import Rating from "@/components/ui/rating/Rating";
@@ -21,6 +23,7 @@ const Cart = () => {
   // Handle Delete Function
   const handleDelete = (id: number) => {
     dispatch({type: "DELETE_FROM_CART", payload: {id: id, amount: 1}});
+    toast.success("Successfully removed from cart!");
   };
   // Sum Logic
   const result = state.map((product) => product.price * product.amount);

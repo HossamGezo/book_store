@@ -1,6 +1,8 @@
 // React Icons
 import {FaEye} from "react-icons/fa";
 import {MdShoppingCart} from "react-icons/md";
+// React Hot Toast
+import toast from "react-hot-toast";
 // Custom Hook
 import {usePopupContext} from "@/context/PopupContext";
 import {useCartContext} from "@/context/CartContext";
@@ -16,6 +18,7 @@ const Card = ({id, price, rating, title, reviews, image}: BooksProps) => {
   // addToCart Function
   const addToCart = (id: number) => {
     dispatch({type: "ADD_TO_CART", payload: {id: id, amount: 1}});
+    toast.success("Successfully added to cart!");
   };
   // Return JSX
   return (

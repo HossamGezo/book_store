@@ -1,5 +1,7 @@
 // React Router
 import {Outlet} from "react-router";
+// React Hot Toast
+import {Toaster} from "react-hot-toast";
 // Components
 import Footer from "@/layouts/footer/Footer";
 import Header from "@/layouts/header/Header";
@@ -9,14 +11,17 @@ import CartContextProvider from "@/context/CartContext";
 // Main Component
 const MainLayout = () => {
   return (
-    <CartContextProvider>
-      <PopupContextProvider>
-        <ScrollToTop />
-        <Header />
-        <Outlet />
-        <Footer />
-      </PopupContextProvider>
-    </CartContextProvider>
+    <>
+      <Toaster />
+      <CartContextProvider>
+        <PopupContextProvider>
+          <ScrollToTop />
+          <Header />
+          <Outlet />
+          <Footer />
+        </PopupContextProvider>
+      </CartContextProvider>
+    </>
   );
 };
 export default MainLayout;

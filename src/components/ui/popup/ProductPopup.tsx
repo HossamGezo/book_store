@@ -1,5 +1,7 @@
 // React
-import {useState} from "react";
+import { useState } from "react";
+// React Hot Toast
+import toast from "react-hot-toast";
 // Data
 import {books} from "@/pages/home/data/books";
 // React Router
@@ -36,6 +38,7 @@ const ProductPopup = ({bookId}: ProductPopupPros) => {
     const amountToAdd = quantity < 1 ? 1 : quantity;
     dispatch({type: "ADD_TO_CART", payload: {id: id, amount: amountToAdd}});
     setQuantity(amountToAdd);
+    toast.success("Successfully added to cart!");
   };
   // Return JSX
   return (

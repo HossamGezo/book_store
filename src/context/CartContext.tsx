@@ -1,7 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - Imports
 // --- React
-import {createContext, useContext, useReducer} from "react";
+import { createContext, useContext, useReducer } from "react";
+// --- React Hot Toast
+import toast from "react-hot-toast";
 // --- Data
 import {books} from "@/pages/home/data/books";
 // --- Types
@@ -75,6 +77,7 @@ const reducer = (
       const book = state.filter((book) => book.id === id)[0];
       // Delete if amount equal 1
       if (book.amount === 1) {
+        toast.success("Successfully removed from cart!");
         return [...CartDelete(id)];
       }
       const result = state.map((book) =>
@@ -91,7 +94,7 @@ const reducer = (
 const CartContextProvider = ({children}: CartContextProviderProps) => {
   // Cart Reducer
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state)
+  console.log(state);
   // Return JSX
   return (
     <CartContext.Provider value={{state, dispatch}}>

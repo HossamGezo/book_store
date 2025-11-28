@@ -28,6 +28,7 @@
 
 /* General Classes */
 @layer components {
+  /* Custom Container */
   .ccontainer {
     @apply px-2 md:mx-auto;
   }
@@ -56,6 +57,7 @@
       @apply w-[1320px];
     }
   }
+  /* Custom Classes */
   .flex-center {
     @apply flex items-center justify-center;
   }
@@ -73,4 +75,18 @@
 /* Global Styles */
 body {
   background-color: var(--color-body);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-blue-300);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-blue-600);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-blue-700);
 }

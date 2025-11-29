@@ -9,7 +9,7 @@ type SlideProps = {
 const Slide = ({gradient, image, title, desc}: SlideProps) => {
   return (
     <div
-      className={`slide w-screen shrink-0 h-[calc(100vh-129px)] lg:h-[calc(100vh-72.88px)] flex-center flex-col lg:flex-row gap-16 ${gradient}`}
+      className={`slide w-full shrink-0 h-[calc(100vh-129px)] lg:h-[calc(100vh-72.88px)] flex-center flex-col lg:flex-row gap-16 ${gradient}`}
     >
       {/* Slide Image */}
       <div className="slide-image-container w-[335px] xl:w-[450px] select-none">

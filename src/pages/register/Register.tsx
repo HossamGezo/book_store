@@ -53,6 +53,7 @@ const Register = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <InputField
+          autoFocus
           type="text"
           placeholder="Username"
           name="username"

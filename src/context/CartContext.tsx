@@ -94,7 +94,6 @@ const reducer = (
 const CartContextProvider = ({children}: CartContextProviderProps) => {
   // Cart Reducer
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
   // Return JSX
   return (
     <CartContext.Provider value={{state, dispatch}}>

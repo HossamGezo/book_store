@@ -1,7 +1,7 @@
-// React Router
-import {NavLink} from "react-router";
 // React Icons
 import {AiOutlineClose} from "react-icons/ai";
+// Components
+import CustomLink from "@/components/ui/custom-Link/CustomLink";
 // Types
 type NavBarProps = {
   toggleBar: boolean;
@@ -25,22 +25,22 @@ const NavBar = ({toggleBar, setToggleBar}: NavBarProps) => {
       )}
       <ul className="header-nav-list select-none">
         <li onClick={() => setToggleBar(false)}>
-          <NavLink to="/">Home</NavLink>
+          <CustomLink to="/">Home</CustomLink>
         </li>
         <li onClick={() => setToggleBar(false)}>
-          <NavLink to="/authors">Authors</NavLink>
+          <CustomLink to="/authors">Authors</CustomLink>
         </li>
         <li onClick={() => setToggleBar(false)}>
-          <NavLink to="/about">About</NavLink>
+          <CustomLink to="/about">About</CustomLink>
         </li>
         <li onClick={() => setToggleBar(false)}>
-          <NavLink to="/contact">Contact</NavLink>
+          <CustomLink to="/contact">Contact</CustomLink>
         </li>
         <li onClick={() => setToggleBar(false)}>
-          <NavLink to="/register">Register</NavLink>
+          <CustomLink to="/register">Register</CustomLink>
         </li>
         <li onClick={() => setToggleBar(false)}>
-          <NavLink to="/login">Login</NavLink>
+          <CustomLink to="/login">Login</CustomLink>
         </li>
       </ul>
     </nav>

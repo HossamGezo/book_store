@@ -5,6 +5,8 @@ import {MdDeleteForever} from "react-icons/md";
 import toast from "react-hot-toast";
 // Custom Hooks
 import {useCartContext} from "@/context/CartContext";
+// Custom Functions
+import currencyFormat from "@/utils/formatCurrency";
 // Components
 import Rating from "@/components/ui/rating/Rating";
 import Button from "@/components/ui/buttons/Button";
@@ -76,7 +78,7 @@ const CartProduct = ({
           <b className="text-[#333] font-medium w-[65px] bg-blue-100/50 px-1 py-0.5 rounded-sm mr-1">
             Price:
           </b>
-          <span className="text-red-400">${price}</span>
+          <span className="text-red-400">{currencyFormat(price)}</span>
         </span>
       </div>
       {/* Cart Prodct amount */}

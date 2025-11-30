@@ -1,5 +1,7 @@
 // Custom Hooks
 import {useCartContext} from "@/context/CartContext";
+// Custom Functions
+import currencyFormat from "@/utils/formatCurrency";
 // Components
 import Button from "@/components/ui/buttons/Button";
 // Main Component
@@ -19,7 +21,7 @@ const CartSummary = () => {
       <div className="order-summary-details bg-white rounded-lg p-2.5 mb-5 *:flex *items-center *:justify-between *:not-last:border-b *:border-b-blue-200 *:py-2.5">
         <div className="cart-summary-subtotal">
           <span className="font-medium">Subtotal</span>
-          <span>${total.toFixed(2)}</span>
+          <span>{currencyFormat(total.toFixed(2))}</span>
         </div>
         <div className="cart-summary-shipping-cost">
           <span className="font-medium">Shipping Cost</span>
@@ -31,7 +33,7 @@ const CartSummary = () => {
         </div>
         <div className="cart-summary-total">
           <span className="font-medium">Total</span>
-          <span>${(total - total * 0.05).toFixed(2)}</span>
+          <span>{currencyFormat((total - total * 0.05).toFixed(2))}</span>
         </div>
       </div>
       <Button size="sm">Pay Now</Button>

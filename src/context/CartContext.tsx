@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - Imports
 // --- React
-import { createContext, useContext, useReducer } from "react";
+import {createContext, useContext, useReducer} from "react";
 // --- React Hot Toast
 import toast from "react-hot-toast";
 // --- Data
@@ -15,15 +15,14 @@ type CartContextProviderProps = {
   children: React.ReactNode;
 };
 // --- Cart State Props
-type CartStateProps = {
+export type CartStateProps = BooksProps & {
   amount: number;
-} & BooksProps;
+};
 // --- Cart Action Props
 type CartActionProps = {
   type: "ADD_TO_CART" | "DELETE_FROM_CART" | "INCREASE" | "DECREASE";
   payload: {id: number; amount: number | 1};
 };
-//
 // --- Cart Context Props
 type CartContextProps = {
   dispatch: React.ActionDispatch<[action: CartActionProps]>;

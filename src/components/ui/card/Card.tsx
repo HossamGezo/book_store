@@ -1,6 +1,7 @@
 // React Icons
 import {FaEye} from "react-icons/fa";
 import {MdShoppingCart} from "react-icons/md";
+import {MdOutlineShoppingCart} from "react-icons/md";
 // React Hot Toast
 import toast from "react-hot-toast";
 // Custom Hooks
@@ -16,11 +17,18 @@ import Rating from "../rating/Rating";
 const Card = ({id, price, rating, title, reviews, image}: BooksProps) => {
   // Custom Hooks
   const {setTogglePopup} = usePopupContext();
-  const {dispatch} = useCartContext();
-  // addToCart Function
+  const {state, dispatch} = useCartContext();
+  // Is In Cart
+  const isInCart = state.find((product) => product.id === id);
+  // Add To Cart Function
   const addToCart = (id: number) => {
     dispatch({type: "ADD_TO_CART", payload: {id: id, amount: 1}});
     toast.success("Successfully added to cart!");
+  };
+  // Remove From Cart Function
+  const removeFromCart = (id: number) => {
+    dispatch({type: "DELETE_FROM_CART", payload: {id: id, amount: 0}});
+    toast.success("Successfully removed from cart!");
   };
   // Return JSX
   return (
@@ -56,10 +64,17 @@ const Card = ({id, price, rating, title, reviews, image}: BooksProps) => {
             className="text-primary/65 hover:text-primary cursor-pointer"
             onClick={() => setTogglePopup({isOpen: true, bookId: id})}
           />
-          <MdShoppingCart
-            onClick={() => addToCart(id)}
-            className="text-green-600/65 hover:text-green-600 cursor-pointer"
-          />
+          {!isInCart ? (
+            <MdOutlineShoppingCart
+              onClick={() => addToCart(id)}
+              className="text-green-600/65 hover:text-green-600 cursor-pointer"
+            />
+          ) : (
+            <MdShoppingCart
+              onClick={() => removeFromCart(id)}
+              className="text-green-600/65 hover:text-green-600 cursor-pointer"
+            />
+          )}
         </div>
       </div>
     </div>

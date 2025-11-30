@@ -3,9 +3,11 @@ import {FaEye} from "react-icons/fa";
 import {MdShoppingCart} from "react-icons/md";
 // React Hot Toast
 import toast from "react-hot-toast";
-// Custom Hook
+// Custom Hooks
 import {usePopupContext} from "@/context/PopupContext";
 import {useCartContext} from "@/context/CartContext";
+// Custom Functions
+import currencyFormat from "@/utils/formatCurrency";
 // Types
 import {type BooksProps} from "@/types";
 // Components
@@ -46,7 +48,7 @@ const Card = ({id, price, rating, title, reviews, image}: BooksProps) => {
             </span>
           </div>
           <div className="rating-price text-center mt-1.5 text-xl text-red-700 font-bold">
-            ${price}
+            {currencyFormat(price)}
           </div>
         </div>
         <div className="card-icons absolute bottom-4 left-1/2 -translate-x-1/2 w-full flex-center gap-5 text-xl pt-3 border-t-2 border-t-primary/45 group-hover:border-t-primary/65">

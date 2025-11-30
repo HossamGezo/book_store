@@ -1,14 +1,16 @@
 // React
-import { useState } from "react";
+import {useState} from "react";
 // React Hot Toast
 import toast from "react-hot-toast";
 // Data
 import {books} from "@/pages/home/data/books";
 // React Router
 import {useNavigate} from "react-router";
-// Custom Hook
+// Custom Hooks
 import {usePopupContext} from "@/context/PopupContext";
 import {useCartContext} from "@/context/CartContext";
+// Custom Functions
+import currencyFormat from "@/utils/formatCurrency";
 // Components
 import Rating from "../rating/Rating";
 import Button from "../buttons/Button";
@@ -77,7 +79,9 @@ const ProductPopup = ({bookId}: ProductPopupPros) => {
           </div>
           <div className="product-popup-desc-price">
             <b className="mr-1 text-xl">Price :</b>
-            <span className="text-red-500 text-lg">${book.price}</span>
+            <span className="text-red-500 text-lg">
+              {currencyFormat(book.price)}
+            </span>
           </div>
         </div>
         {/* Product Popup Cart */}

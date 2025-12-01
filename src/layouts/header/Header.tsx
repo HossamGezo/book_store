@@ -2,17 +2,16 @@
 import {useEffect, useState} from "react";
 // Custom Hooks
 import {useCartContext} from "@/context/CartContext";
+// Custom Components
+import NavBar from "./NavBar";
 // React Router
-import {Link} from "react-router";
+import {Link, NavLink} from "react-router";
 // React Icons
 import {IoSearch} from "react-icons/io5";
 import {PiShoppingCartLight} from "react-icons/pi";
 import {FaBars} from "react-icons/fa6";
 // Styles
 import "./header.css";
-// Images
-import Logo from "../../../public/favicon.svg";
-import NavBar from "./NavBar";
 // Main Component
 const Header = () => {
   // Custom Hooks
@@ -44,9 +43,9 @@ const Header = () => {
         <Link to="/">
           <div className="header-logo select-none">
             <img
-              src={Logo}
+              src="/favicon.svg"
               alt="Book Store Logo"
-              className="boject-contain"
+              className="object-contain"
               draggable="false"
             />
           </div>
@@ -65,7 +64,14 @@ const Header = () => {
         {/* Header Navbar */}
         <NavBar toggleBar={toggleBar} setToggleBar={setToggleBar} />
         {/* Header Cart */}
-        <Link className="header-cart-warpper" to="/cart">
+        <NavLink
+          className={({
+            isActive,
+          }) => `header-cart-warpper border-2 rounded-sm px-1 py-0.5
+            ${isActive ? "border-blue-300" : "border-transparent"}
+          `}
+          to="/cart"
+        >
           <div className="header-cart flex items-baseline-last gap-0.5 text-white select-none">
             <PiShoppingCartLight className="text-4xl font-bold" />
             <span className="relative font-jetbrains font-bold">
@@ -75,7 +81,7 @@ const Header = () => {
               </span>
             </span>
           </div>
-        </Link>
+        </NavLink>
       </div>
     </header>
   );

@@ -27,7 +27,7 @@ const Card = ({id, price, rating, title, reviews, image}: BooksProps) => {
   };
   // Remove From Cart Function
   const removeFromCart = (id: number) => {
-    dispatch({type: "DELETE_FROM_CART", payload: {id: id, amount: 0}});
+    dispatch({type: "DELETE_FROM_CART", payload: {id: id}});
     toast.success("Successfully removed from cart!");
   };
   // Return JSX

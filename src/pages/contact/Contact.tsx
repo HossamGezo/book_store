@@ -15,17 +15,23 @@ import "./contact.css";
 const Schema = z.object({
   name: z
     .string()
+    .trim()
     .min(3, {message: "Name must be at least 3 characters"})
     .max(21, {message: "Name must not exceed 21 characters"}),
   subject: z
     .string()
+    .trim()
     .min(3, {message: "Subject must be at least 3 characters"})
     .max(21, {message: "Subject must not exceed 21 characters"}),
-  email: z.string().regex(/^\S+@\S+\.\S+$/, {message: "Invalid Email"}),
+  email: z
+    .string()
+    .trim()
+    .regex(/^\S+@\S+\.\S+$/, {message: "Invalid Email"}),
   message: z
     .string()
+    .trim()
     .min(6, {message: "Message must be at least 6 characters"})
-    .max(200, {message: "Message must not exceed 200 characters"}),
+    .max(500, {message: "Message must not exceed 500 characters"}),
 });
 type SchemaProps = z.infer<typeof Schema>;
 // Main Component

@@ -9,11 +9,16 @@ import {Link} from "react-router";
 const LoginSchema = z.object({
   username: z
     .string()
+    .trim()
     .min(3, {message: "Username must be at least 3 characters"})
     .max(21, {message: "Username must not exceed 21 characters"}),
-  email: z.string().regex(/^\S+@\S+\.\S+$/, {message: "Invalid Email"}),
+  email: z
+    .string()
+    .trim()
+    .regex(/^\S+@\S+\.\S+$/, {message: "Invalid Email"}),
   password: z
     .string()
+    .trim()
     .min(8, {message: "Password must be at least 8 characters"}),
 });
 type LoginSchemaProps = z.infer<typeof LoginSchema>;

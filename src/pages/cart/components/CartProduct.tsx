@@ -37,7 +37,7 @@ const CartProduct = ({
   };
   // Handle Delete Function
   const handleDelete = (id: number) => {
-    dispatch({type: "DELETE_FROM_CART", payload: {id: id, amount: 1}});
+    dispatch({type: "DELETE_FROM_CART", payload: {id: id}});
     toast.success("Successfully removed from cart!");
   };
   // Return JSX

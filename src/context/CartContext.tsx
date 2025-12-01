@@ -19,10 +19,12 @@ export type CartStateProps = BooksProps & {
   amount: number;
 };
 // --- Cart Action Props
-type CartActionProps = {
-  type: "ADD_TO_CART" | "DELETE_FROM_CART" | "INCREASE" | "DECREASE";
-  payload: {id: number; amount: number | 1};
-};
+type CartActionProps =
+  | {
+      type: "ADD_TO_CART" | "INCREASE" | "DECREASE";
+      payload: {id: number; amount: number};
+    }
+  | {type: "DELETE_FROM_CART"; payload: {id: number}};
 // --- Cart Context Props
 type CartContextProps = {
   dispatch: React.ActionDispatch<[action: CartActionProps]>;

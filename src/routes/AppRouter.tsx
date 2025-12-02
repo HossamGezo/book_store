@@ -8,8 +8,8 @@ import Home from "@/pages/home/Home";
 import Authors from "@/pages/authors/Authors";
 import About from "@/pages/about/About";
 import Contact from "@/pages/contact/Contact";
-import Register from "@/pages/register/Register";
-import Login from "@/pages/login/Login";
+import Register from "@/pages/auth/register/Register";
+import Login from "@/pages/auth/login/Login";
 import Cart from "@/pages/cart/Cart";
 // Main Component
 const AppRouter = () => {

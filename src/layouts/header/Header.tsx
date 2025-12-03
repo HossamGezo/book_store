@@ -55,7 +55,7 @@ const Header = () => {
           <input
             type="text"
             placeholder="Search Book Store"
-            className="w-[90%] outline-0 pl-1.5 caret-primary placeholder:text-sm placeholder:select-none"
+            className="w-[90%] outline-0 pl-1.5 caret-primary placeholder:text-sm placeholder:select-none placeholder:text-secondary/70"
           />
           <div className="header-search-icon h-full w-[50px] bg-secondary/85 hover:bg-blue-700 flex-center cursor-pointer">
             <IoSearch className="text-white h-full text-3xl" />

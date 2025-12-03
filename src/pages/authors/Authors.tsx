@@ -36,7 +36,7 @@ const Authors = () => {
         {/* Search Bar */}
         <div className="authors-search relative w-[60%] mb-5">
           <input
-            className="authors-search-bar border-b-2 border-b-primary w-full pb-1.5 outline-0 caret-(--color-primary)"
+            className="authors-search-bar border-b-2 border-b-primary w-full pb-1.5 outline-0 caret-primary placeholder:text-sm placeholder:select-none placeholder:text-secondary/70"
             type="text"
             placeholder="Author Name"
             value={search}

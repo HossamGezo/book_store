@@ -1,13 +1,17 @@
 // React Icons
-import {FaTruck} from "react-icons/fa6";
-import {FaGift} from "react-icons/fa";
-import {ImLoop2} from "react-icons/im";
-import {BiSolidMessageDetail} from "react-icons/bi";
-import {RiCustomerService2Fill} from "react-icons/ri";
-import {GiReceiveMoney} from "react-icons/gi";
-import {FaBookOpenReader} from "react-icons/fa6";
+import { FaTruck } from "react-icons/fa6";
+import { FaGift } from "react-icons/fa";
+import { ImLoop2 } from "react-icons/im";
+import { BiSolidMessageDetail } from "react-icons/bi";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { GiReceiveMoney } from "react-icons/gi";
+import { FaBookOpenReader } from "react-icons/fa6";
+
+// Types
+import type { ServiceType } from "@/types/types";
+
 // Services Data
-const services = [
+const services: ServiceType[] = [
   {
     id: 1,
     title: "Free Shipping",

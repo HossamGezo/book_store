@@ -1,39 +1,78 @@
-// React Router
-import {Link} from "react-router";
+// Libraries
+import { Link } from "react-router";
+
 // React Icons
-import {FaInstagramSquare} from "react-icons/fa";
-import {FaTelegram} from "react-icons/fa";
-import {FaFacebookSquare} from "react-icons/fa";
-import {BsYoutube} from "react-icons/bs";
-import {BsTwitterX} from "react-icons/bs";
-import {ImLocation} from "react-icons/im";
-import {BsFillTelephoneFill} from "react-icons/bs";
-import {MdEmail} from "react-icons/md";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaTelegram } from "react-icons/fa";
+import { FaFacebookSquare } from "react-icons/fa";
+import { BsYoutube } from "react-icons/bs";
+import { BsTwitterX } from "react-icons/bs";
+import { ImLocation } from "react-icons/im";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+
 // Styles
 import "./footer.css";
+
 // Main Component
 const Footer = () => {
   return (
     <section className="footer py-10 bg-primary text-white">
-      <div className="ccontainer">
+      <div className="custom-container">
         {/* Social Media */}
-        <div className="footer-social-media max-lg:flex-col flex-around text-center gap-5 border-b-2 border-white pb-5 mb-10">
+        <div className="footer-social-media max-lg:flex-col flex items-center justify-around text-center gap-5 border-b-2 border-white pb-5 mb-10">
           <h3 className="footer-social-media-title max-lg:text-2xl text-3xl font-bold">
             Follow us on social media
           </h3>
-          <div className="footer-social-media-list flex-center gap-5 bg-white max-lg:w-[200px] w-[300px] px-2.5 py-2.5 rounded-md text-secondary/75">
-            <FaInstagramSquare className="text-[#E1306C]" />
-            <FaTelegram className="text-[#0088cc]" />
-            <FaFacebookSquare className="text-[#1877f2]" />
-            <BsYoutube className="text-[#ff0000]" />
-            <BsTwitterX className="text-[#333]" />
+          <div className="footer-social-media-list flex items-center justify-center gap-5 bg-white max-lg:w-[200px] w-[300px] px-2.5 py-2.5 rounded-md text-secondary/75">
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Instagram"
+            >
+              <FaInstagramSquare className="text-[#E1306C]" />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Telegram"
+            >
+              <FaTelegram className="text-[#0088cc]" />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Facebook"
+            >
+              <FaFacebookSquare className="text-[#1877f2]" />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Youtube"
+            >
+              <BsYoutube className="text-[#ff0000]" />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on X"
+            >
+              <BsTwitterX className="text-[#333]" />
+            </a>
           </div>
         </div>
+
         {/* Footer Description */}
         <div className="footer-description grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {/* Footer Description Links */}
           <div className="footer-description-links flex flex-col">
-            <h3>Usefull Links</h3>
+            <h3>Useful Links</h3>
             <Link to="/">Home</Link>
             <Link to="/authors">Authors</Link>
             <Link to="/">Blog</Link>
@@ -42,22 +81,23 @@ const Footer = () => {
           </div>
           {/* Footer Description Address */}
           <div className="footer-description-address">
-            <h3 className="foter-description-address-title">
+            <h3 className="footer-description-address-title">
               Contact Information
             </h3>
-            <div className="foter-description-address-location">
+            <div className="footer-description-address-location">
               <ImLocation />
               Egypt – Cairo – Nasr City
             </div>
-            <div className="foter-description-address-telephone">
+            <div className="footer-description-address-telephone">
               <BsFillTelephoneFill />
               123-456-789
             </div>
-            <div className="foter-description-address-email">
+            <div className="footer-description-address-email">
               <MdEmail />
               info@fakeemail.com
             </div>
           </div>
+
           {/* Footer About Us */}
           <div className="footer-description-about-us md:col-span-2">
             <h3 className="footer-description-about-us-title">About Us</h3>

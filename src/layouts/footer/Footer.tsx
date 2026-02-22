@@ -21,10 +21,10 @@ const Footer = () => {
       <div className="custom-container">
         {/* Social Media */}
         <div className="footer-social-media max-lg:flex-col flex items-center justify-around text-center gap-5 border-b-2 border-white pb-5 mb-10">
-          <h3 className="footer-social-media-title max-lg:text-2xl text-3xl font-bold">
+          <h3 className="footer-social-media-title max-lg:text-2xl text-3xl font-bold select-none">
             Follow us on social media
           </h3>
-          <div className="footer-social-media-list flex items-center justify-center gap-5 bg-white max-lg:w-[200px] w-[300px] px-2.5 py-2.5 rounded-md text-secondary/75">
+          <div className="footer-social-media-list flex items-center justify-center gap-5 bg-white w-[300px] px-2.5 py-2.5 rounded-md text-secondary/75">
             <a
               href="#"
               target="_blank"
@@ -72,7 +72,7 @@ const Footer = () => {
         <div className="footer-description grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {/* Footer Description Links */}
           <div className="footer-description-links flex flex-col">
-            <h3>Useful Links</h3>
+            <h3 className="select-none">Useful Links</h3>
             <Link to="/">Home</Link>
             <Link to="/authors">Authors</Link>
             <Link to="/">Blog</Link>
@@ -81,7 +81,7 @@ const Footer = () => {
           </div>
           {/* Footer Description Address */}
           <div className="footer-description-address">
-            <h3 className="footer-description-address-title">
+            <h3 className="footer-description-address-title select-none">
               Contact Information
             </h3>
             <div className="footer-description-address-location">
@@ -100,7 +100,9 @@ const Footer = () => {
 
           {/* Footer About Us */}
           <div className="footer-description-about-us md:col-span-2">
-            <h3 className="footer-description-about-us-title">About Us</h3>
+            <h3 className="footer-description-about-us-title select-none">
+              About Us
+            </h3>
             <p className="footer-description-about-us-desc">
               Welcome to our online bookstore — your trusted destination for
               discovering, exploring, and purchasing books from every genre. We

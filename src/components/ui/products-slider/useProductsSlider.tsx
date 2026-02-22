@@ -38,15 +38,20 @@
  *
  * =====================================================================
  */
-// React
-import {useEffect, useState} from "react";
+// Libraries
+import { useEffect, useState } from "react";
+
 // Types
 type ProductsSliderProps = {
   arrayLength: number;
   viewportRef: React.RefObject<HTMLDivElement | null>;
 };
+
 // Main Component
-const useProductsSlider = ({arrayLength, viewportRef}: ProductsSliderProps) => {
+const useProductsSlider = ({
+  arrayLength,
+  viewportRef,
+}: ProductsSliderProps) => {
   const [viewportWidth, setViewportWidth] = useState(0);
   useEffect(() => {
     // Resize Function
@@ -79,7 +84,7 @@ const useProductsSlider = ({arrayLength, viewportRef}: ProductsSliderProps) => {
     const restOfClicks = Math.round(availableScroll % (itemWidth + itemGap));
     everyClick = itemWidth + itemGap + restOfClicks / clicksCount; // Slide Move Every Click
   }
-  return {availableScroll, everyClick};
+  return { availableScroll, everyClick };
 };
 
 export default useProductsSlider;

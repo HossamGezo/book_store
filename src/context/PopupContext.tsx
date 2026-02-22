@@ -1,32 +1,35 @@
 /* eslint-disable react-refresh/only-export-components */
-// React
-import {createContext, useContext, useState} from "react";
+// Libraries
+import { createContext, useContext, useState } from "react";
+
 // Types
 // ----- State Type
-type togglePopupStatePorps = {
+type togglePopupStateProps = {
   isOpen: boolean;
   bookId: number | null;
 };
 // ----- Context Type
 type PopupContextProps = {
-  togglePopup: togglePopupStatePorps;
-  setTogglePopup: React.Dispatch<React.SetStateAction<togglePopupStatePorps>>;
+  togglePopup: togglePopupStateProps;
+  setTogglePopup: React.Dispatch<React.SetStateAction<togglePopupStateProps>>;
 };
 // ----- Main Component Type
 type PopupContextProviderProps = {
   children: React.ReactNode;
 };
+
 // Context
 const PopupContext = createContext<PopupContextProps | null>(null);
+
 // Main Component
-const PopupContextProvider = ({children}: PopupContextProviderProps) => {
-  const [togglePopup, setTogglePopup] = useState<togglePopupStatePorps>({
+const PopupContextProvider = ({ children }: PopupContextProviderProps) => {
+  const [togglePopup, setTogglePopup] = useState<togglePopupStateProps>({
     isOpen: false,
     bookId: null,
   });
   // Return JSX
   return (
-    <PopupContext.Provider value={{togglePopup, setTogglePopup}}>
+    <PopupContext.Provider value={{ togglePopup, setTogglePopup }}>
       {children}
     </PopupContext.Provider>
   );

@@ -1,39 +1,44 @@
-// Import React Hook Form & Zod
-import {useForm, type SubmitHandler} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {z} from "zod";
+// Libraries
+import { useForm, type SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
 // React Icons
-import {ImLocation} from "react-icons/im";
-import {BsFillTelephoneFill} from "react-icons/bs";
-import {MdEmail} from "react-icons/md";
+import { ImLocation } from "react-icons/im";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+
 // Components
 import InputField from "@/components/ui/inputs/InputField";
 import Button from "@/components/ui/buttons/Button";
+
 // Styles
 import "./contact.css";
+
 // Zod Schema
-const Schema = z.object({
+const ContactSchema = z.object({
   name: z
     .string()
     .trim()
-    .min(3, {message: "Name must be at least 3 characters"})
-    .max(21, {message: "Name must not exceed 21 characters"}),
+    .min(3, { message: "Name must be at least 3 characters" })
+    .max(21, { message: "Name must not exceed 21 characters" }),
   subject: z
     .string()
     .trim()
-    .min(3, {message: "Subject must be at least 3 characters"})
-    .max(21, {message: "Subject must not exceed 21 characters"}),
+    .min(3, { message: "Subject must be at least 3 characters" })
+    .max(21, { message: "Subject must not exceed 21 characters" }),
   email: z
     .string()
     .trim()
-    .regex(/^\S+@\S+\.\S+$/, {message: "Invalid Email"}),
+    .regex(/^\S+@\S+\.\S+$/, { message: "Invalid Email" }),
   message: z
     .string()
     .trim()
-    .min(6, {message: "Message must be at least 6 characters"})
-    .max(500, {message: "Message must not exceed 500 characters"}),
+    .min(6, { message: "Message must be at least 6 characters" })
+    .max(500, { message: "Message must not exceed 500 characters" }),
 });
-type SchemaProps = z.infer<typeof Schema>;
+type ContactSchemaType = z.infer<typeof ContactSchema>;
+
 // Main Component
 const Contact = () => {
   // React Hook Form Logic
@@ -41,32 +46,33 @@ const Contact = () => {
     register,
     handleSubmit,
     reset,
-    formState: {errors},
-  } = useForm<SchemaProps>({
+    formState: { errors },
+  } = useForm<ContactSchemaType>({
     mode: "onChange",
-    resolver: zodResolver(Schema),
+    resolver: zodResolver(ContactSchema),
   });
   // onSubmit Function
-  const onSubmit: SubmitHandler<SchemaProps> = (data) => {
+  const onSubmit: SubmitHandler<ContactSchemaType> = (data) => {
     console.log(data);
     reset();
   };
+
   // Return JSX
   return (
-    <div className="contact ccontainer">
+    <div className="contact custom-container">
       {/* Contact Address */}
       <div className="contact-address">
-        <div className="contact-address-location">
+        <div>
           <ImLocation className="icon" />
           <span>Address</span>
           <span>Egypt – Cairo – Nasr City</span>
         </div>
-        <div className="contact-address-location">
+        <div>
           <BsFillTelephoneFill className="icon" />
           <span>Phone</span>
           <span>123-456-789</span>
         </div>
-        <div className="contact-address-location">
+        <div>
           <MdEmail className="icon" />
           <span>Email</span>
           <span>info@fakeemail.com</span>
@@ -77,7 +83,7 @@ const Contact = () => {
         <h1 className="text-center text-3xl text-primary mb-10 font-jetbrains">
           Contact Us Form
         </h1>
-        <div className="inputs-wrapper grid grid-cols-1 xl:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
           <InputField
             type="text"
             placeholder="Name *"

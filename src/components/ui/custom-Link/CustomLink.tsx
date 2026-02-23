@@ -1,12 +1,12 @@
 // Libraries
 import { cn } from "@/utils/cn";
-import { NavLink } from "react-router";
+import { NavLink, type NavLinkProps } from "react-router";
 
 // Types
 type CustomLinkProps = {
   to: string;
   children: React.ReactNode;
-} & React.ComponentProps<"a">;
+} & NavLinkProps;
 
 // Main Component
 const CustomLink = ({ to, children, className, ...rest }: CustomLinkProps) => {

@@ -32,7 +32,7 @@ const InputField = <T extends FieldValues>({
         {...register(name)}
         className={cn(baseStyles, className)}
       />
-      {error && <span className="text-sm text-red-400/85">{error}</span>}
+      {error && <span className="text-sm text-red-500/85">{error}</span>}
     </div>
   );
 };

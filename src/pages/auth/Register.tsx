@@ -1,35 +1,35 @@
-// React Router
-import {Link} from "react-router";
-// Import React Hook Form, ZodResolver & Zod
-import {useForm, type SubmitHandler} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {z} from "zod";
+// Libraries
+import { Link } from "react-router";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
 // Components
 import InputField from "@/components/ui/inputs/InputField";
 import Button from "@/components/ui/buttons/Button";
+import PasswordField from "@/components/ui/inputs/PasswordField";
+
 // Register Schema
 const RegisterSchema = z
   .object({
     username: z
       .string()
       .trim()
-      .min(3, {message: "Username must be at least 3 characters"})
-      .max(21, {message: "Username must not exceed 21 characters"}),
-    email: z
-      .string()
-      .trim()
-      .regex(/^\S+@\S+\.\S+$/, {message: "Invalid Email"}),
+      .min(3, { message: "Username must be at least 3 characters" })
+      .max(21, { message: "Username must not exceed 21 characters" }),
+    email: z.string().email({ message: "Invalid Email Address" }).trim(),
     password: z
       .string()
       .trim()
-      .min(8, {message: "Password must be at least 8 characters"}),
+      .min(8, { message: "Password must be at least 8 characters" }),
     confirmPassword: z.string(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     path: ["confirmPassword"],
     message: "Passwords doesn't match",
   });
-type RegisterSchemaProps = z.infer<typeof RegisterSchema>;
+type RegisterSchemaType = z.infer<typeof RegisterSchema>;
+
 // Main Component
 const Register = () => {
   // React Hook Form Logic
@@ -37,24 +37,25 @@ const Register = () => {
     register,
     handleSubmit,
     reset,
-    formState: {errors},
-  } = useForm<RegisterSchemaProps>({
+    formState: { errors },
+  } = useForm<RegisterSchemaType>({
     mode: "onChange",
     resolver: zodResolver(RegisterSchema),
   });
   // OnSubmit Function
-  const onSubmit: SubmitHandler<RegisterSchemaProps> = (data) => {
+  const onSubmit: SubmitHandler<RegisterSchemaType> = (data) => {
     console.log(data);
     reset();
   };
+
   // Return JSX
   return (
-    <div className="register ccontainer flex-center flex-col gap-5 py-5 min-h-[calc(100vh-73.88px)]">
-      <h1 className="register-form-title text-2xl text-primary mb-5 font-jetbrains p-5 bg-white rounded-lg">
+    <div className="custom-container flex items-center justify-center flex-col gap-5 py-5 min-h-[calc(100vh-73.88px)]">
+      <h1 className="shadow-lg text-2xl text-primary mb-5 font-jetbrains p-5 bg-white rounded-lg">
         Create New Account
       </h1>
       <form
-        className="register-form flex flex-col gap-5 bg-blue-100/50 py-5 px-1.5 sm:p-10 rounded-lg"
+        className="shadow-lg flex flex-col gap-5 bg-blue-100/50 py-5 px-1.5 sm:p-10 rounded-lg"
         onSubmit={handleSubmit(onSubmit)}
       >
         <InputField
@@ -74,7 +75,7 @@ const Register = () => {
           error={errors.email?.message}
           autoComplete="email"
         />
-        <InputField
+        <PasswordField
           type="password"
           name="password"
           placeholder="Password"
@@ -82,7 +83,7 @@ const Register = () => {
           error={errors.password?.message}
           autoComplete="new-password"
         />
-        <InputField
+        <PasswordField
           type="password"
           name="confirmPassword"
           placeholder="Confirm Password"
@@ -95,10 +96,10 @@ const Register = () => {
         </Button>
       </form>
       <span className="text-lg font-light text-gray-500">
-        Already have an account
+        Don't have an account?
         <Link
           to="/login"
-          className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 ml-0.5"
+          className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 ml-1"
         >
           Login
         </Link>

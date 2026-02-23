@@ -6,7 +6,7 @@
     .custom-container {
       @apply relative flex items-center gap-2.5;
       .header-logo {
-        @apply w-8;
+        @apply w-6.5;
       }
       .header-search {
         @apply absolute -bottom-14 left-1/2 -translate-x-1/2 text-sm h-10 w-[calc(100%-16px)];

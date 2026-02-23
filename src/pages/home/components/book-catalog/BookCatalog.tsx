@@ -1,15 +1,19 @@
-// React
-import {useEffect, useState} from "react";
+// Libraries
+import { useEffect, useState } from "react";
+
 // Data
-import {books} from "../../data/books";
+import { books } from "../../data/books";
+
 // Components
 import Pagination from "@/components/ui/pagination/Pagination";
 import Card from "@/components/ui/card/Card";
 import Title from "@/components/ui/title/Title";
+
 // Main Component
 const BookCatalog = () => {
   const [page, setPage] = useState(1);
   const [cardsCount, setCardsCount] = useState<5 | 8>(5);
+
   // Pagination Logic
   useEffect(() => {
     const screenWidth = () => {
@@ -23,28 +27,29 @@ const BookCatalog = () => {
         return prev;
       });
     };
+    screenWidth();
     // Resize Listener
     window.addEventListener("resize", screenWidth);
+
     // Clean Up Listener
     return () => {
       window.removeEventListener("resize", screenWidth);
     };
-  }, [cardsCount]);
+  }, []);
+
   const paginateNumbers = Math.ceil(books.length / cardsCount);
   const catalogBooks = books.slice((page - 1) * cardsCount, page * cardsCount);
+
   // Return JSX
   return (
-    <section className="book-catalog py-10">
-      <div className="ccontainer">
-        <div className="book-catalog-title flex-center">
+    <section className="py-10">
+      <div className="custom-container">
+        <div className="flex items-center justify-center">
           <Title title="Catalog Books" />
         </div>
-        <div className="book-catalog-list grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5 mb-10 place-items-center">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5 mb-10 place-items-center">
           {catalogBooks.map((book) => (
-            <Card
-              key={book.id}
-              {...book}
-            />
+            <Card key={book.id} {...book} />
           ))}
         </div>
         <Pagination

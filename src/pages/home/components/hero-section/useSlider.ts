@@ -1,11 +1,13 @@
-// React Library Imports
-import {useCallback, useEffect, useRef, useState} from "react";
+// Libraries
+import { useCallback, useEffect, useRef, useState } from "react";
+
 // Custom Hook
 export const useSlider = (slideCount: number) => {
   // ---------------------------------------------- State Mangement
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState<"forward" | "backward">("forward");
   const intervalRef = useRef<number | null>(null);
+
   // ---------------------------------------------- autoPlay Logic
   const runAutoPlay = useCallback(() => {
     if (direction === "forward") {
@@ -24,22 +26,25 @@ export const useSlider = (slideCount: number) => {
       }
     }
   }, [direction, currentSlide, slideCount]);
+
   // Restart Autoplay to avoid conflict between user click and autoplay interval
   const restartAutoPlay = useCallback(() => {
     if (intervalRef.current) {
-      clearInterval(intervalRef.current);
+      window.clearInterval(intervalRef.current);
     }
-    intervalRef.current = setInterval(runAutoPlay, 30000);
+    intervalRef.current = window.setInterval(runAutoPlay, 5000);
   }, [runAutoPlay]);
+
   // ---------------------------------------------- Lifecycle Management
   useEffect(() => {
     restartAutoPlay();
     return () => {
       if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+        window.clearInterval(intervalRef.current);
       }
     };
   }, [restartAutoPlay]);
+
   // ---------------------------------------------- Slider Manual Controls
   // Handle Previous Function
   const handlePrevious = () => {
@@ -51,6 +56,7 @@ export const useSlider = (slideCount: number) => {
     setCurrentSlide((prev) => Math.min(prev + 1, slideCount - 1));
     restartAutoPlay();
   };
+
   // ---------------------------------------------- Hook Output
   return {
     currentSlide,

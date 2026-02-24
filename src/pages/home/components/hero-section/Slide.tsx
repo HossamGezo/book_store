@@ -13,7 +13,7 @@ const Slide = ({ gradient, image, title, description }: SlideProps) => {
       className={`w-full shrink-0 h-[calc(100vh-129px)] lg:h-[calc(100vh-72.88px)] flex items-center justify-center flex-col lg:flex-row gap-16 ${gradient}`}
     >
       {/* Slide Image */}
-      <div className="slide-image-container w-[335px] xl:w-[450px] select-none">
+      <div className="slide-image-container w-[235px] sm:w-[335px] xl:w-[450px] select-none">
         <img
           src={image}
           alt={title}

@@ -1,51 +1,48 @@
-const ContactSkeleton = () => {
+const AboutSkeleton = () => {
   return (
-    <section className="contact custom-container animate-pulse mb-10">
-      {/* 1. Contact Address Skeleton */}
-      <div className="contact-address">
-        {/* Item 1: Address */}
-        <div>
-          <div className="icon w-7 h-7 bg-blue-200/60 rounded-full"></div>
-          <span className="w-20 h-5 bg-blue-100/80 rounded-sm"></span>
-          <span className="w-40 h-5 bg-blue-50/70 rounded-sm"></span>
+    <section className="animate-pulse flex flex-col">
+      <div className="custom-container grow py-10">
+        {/* 1. Title Skeleton */}
+        <div className="h-10 md:h-12 bg-blue-200/50 w-48 mb-8 rounded-sm"></div>
+        <div className="h-0.5 bg-primary/20 w-32 -mt-5 mb-10"></div>
+
+        {/* 2. Text Content Skeletons */}
+        <div className="space-y-6">
+          {/* Paragraph 1 */}
+          <div className="space-y-2.5">
+            <div className="h-4 bg-blue-100/70 w-full rounded-sm"></div>
+            <div className="h-4 bg-blue-100/70 w-[95%] rounded-sm"></div>
+            <div className="h-4 bg-blue-100/70 w-[90%] rounded-sm"></div>
+            <div className="h-4 bg-blue-100/70 w-[40%] rounded-sm"></div>
+          </div>
+
+          {/* Paragraph 2 */}
+          <div className="space-y-2.5">
+            <div className="h-4 bg-blue-100/70 w-full rounded-sm"></div>
+            <div className="h-4 bg-blue-100/70 w-[98%] rounded-sm"></div>
+            <div className="h-4 bg-blue-100/70 w-[85%] rounded-sm"></div>
+          </div>
+
+          {/* Subtitle Skeleton */}
+          <div className="h-7 bg-blue-200/40 w-64 mt-8 mb-4 rounded-sm"></div>
+
+          {/* List Skeleton */}
+          <div className="space-y-3 ml-10">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="h-4 bg-blue-100/60 w-64 rounded-sm"></div>
+            ))}
+          </div>
+
+          {/* Paragraph 3 */}
+          <div className="space-y-2.5 pt-4">
+            <div className="h-4 bg-blue-100/70 w-full rounded-sm"></div>
+            <div className="h-4 bg-blue-100/70 w-[92%] rounded-sm"></div>
+            <div className="h-4 bg-blue-100/70 w-[30%] rounded-sm"></div>
+          </div>
         </div>
-
-        {/* Item 2: Phone */}
-        <div>
-          <div className="icon w-7 h-7 bg-blue-200/60 rounded-full"></div>
-          <span className="w-16 h-5 bg-blue-100/80 rounded-sm"></span>
-          <span className="w-32 h-5 bg-blue-50/70 rounded-sm"></span>
-        </div>
-
-        {/* Item 3: Email */}
-        <div>
-          <div className="icon w-7 h-7 bg-blue-200/60 rounded-full"></div>
-          <span className="w-16 h-5 bg-blue-100/80 rounded-sm"></span>
-          <span className="w-36 h-5 bg-blue-50/70 rounded-sm"></span>
-        </div>
-      </div>
-
-      {/* 2. Contact Form Skeleton */}
-      <div className="contact-form w-full md:w-fit">
-        {/* Form Title */}
-        <div className="w-64 h-10 bg-blue-200/50 mx-auto mb-10 rounded-sm"></div>
-
-        {/* Inputs Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
-          {/* 3 Input Bars */}
-          <div className="w-[325px] h-[45px] bg-blue-100/50 rounded-sm"></div>
-          <div className="w-[325px] h-[45px] bg-blue-100/50 rounded-sm"></div>
-          <div className="w-[325px] h-[45px] bg-blue-100/50 rounded-sm"></div>
-
-          {/* Textarea Placeholder */}
-          <div className="xl:col-span-3 w-full h-[300px] bg-blue-100/30 rounded-sm"></div>
-        </div>
-
-        {/* Button Placeholder */}
-        <div className="w-32 h-10 bg-primary/30 rounded-md mt-5"></div>
       </div>
     </section>
   );
 };
 
-export default ContactSkeleton;
+export default AboutSkeleton;

@@ -2,7 +2,7 @@
 import { AiOutlineClose } from "react-icons/ai";
 
 // Components
-import CustomLink from "@/components/ui/app-link/CustomLink";
+import CustomLink from "@/components/ui/custom-link/CustomLink";
 
 // Types
 type NavBarProps = {

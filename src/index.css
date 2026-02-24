@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Theme */
 @theme {
   /* Breakpoints */
   --breakpoint-xs: 344px;
@@ -9,6 +8,7 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   --breakpoint-xxl: 1400px;
+
   /* Colors */
   --color-body: #f1f5f9;
   --color-primary: var(--color-blue-600);
@@ -16,77 +16,41 @@
   --color-gray-light: #f9f9f9;
   --color-gray-normal: #eeeeee;
   --color-gray-dark: #757575;
+
   /* Fonts */
   --font-jetbrains: "JetBrains Mono", monospace;
+
   /* Shadows */
-  --shadow-normal: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-  --shadow-scale: rgba(0, 0, 0, 0.07) 0px 1px 1px,
-    rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px,
-    rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  --shadow-normal:
+    rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  --shadow-scale:
+    rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
-/* General Classes */
-@layer components {
-  /* Custom Container */
-  .ccontainer {
-    @apply px-2 md:mx-auto;
-  }
-  @media (max-width: 575px) {
-    .ccontainer {
-      @apply w-full;
-    }
-  }
-  @media (min-width: 768px) {
-    .ccontainer {
-      @apply w-[720px];
-    }
-  }
-  @media (min-width: 992px) {
-    .ccontainer {
-      @apply w-[960px];
-    }
-  }
-  @media (min-width: 1200px) {
-    .ccontainer {
-      @apply w-[1140px];
-    }
-  }
-  @media (min-width: 1400px) {
-    .ccontainer {
-      @apply w-[1320px];
-    }
-  }
-  /* Custom Classes */
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
-  .flex-between {
-    @apply flex items-center justify-between;
-  }
-  .flex-around {
-    @apply flex items-center justify-around;
-  }
-  .grid-gap {
-    @apply grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-10;
-  }
+.custom-container {
+  @apply mx-auto px-4 w-full sm:max-w-135 md:max-w-180 lg:max-w-240 xl:max-w-285 xxl:max-w-330;
 }
 
-/* Global Styles */
+html {
+  @apply scroll-smooth;
+}
+
 body {
   background-color: var(--color-body);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
+/* Custom Scrollbar Utility */
+.custom-scrollbar::-webkit-scrollbar {
   width: 10px;
 }
-::-webkit-scrollbar-track {
+.custom-scrollbar::-webkit-scrollbar-track {
   background: var(--color-blue-300);
 }
-::-webkit-scrollbar-thumb {
+.custom-scrollbar::-webkit-scrollbar-thumb {
   background: var(--color-blue-600);
 }
-::-webkit-scrollbar-thumb:hover {
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--color-blue-700);
 }

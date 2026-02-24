@@ -1,14 +1,17 @@
 // React Icons
-import {AiOutlineClose} from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
+
 // Components
-import CustomLink from "@/components/ui/custom-Link/CustomLink";
+import CustomLink from "@/components/ui/custom-link/CustomLink";
+
 // Types
 type NavBarProps = {
   toggleBar: boolean;
   setToggleBar: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
 // Main Component
-const NavBar = ({toggleBar, setToggleBar}: NavBarProps) => {
+const NavBar = ({ toggleBar, setToggleBar }: NavBarProps) => {
   return (
     <nav
       className={`header-nav z-50 ${
@@ -18,10 +21,13 @@ const NavBar = ({toggleBar, setToggleBar}: NavBarProps) => {
       }`}
     >
       {toggleBar && (
-        <AiOutlineClose
+        <button
+          type="button"
+          aria-label="Close Menu"
           onClick={() => setToggleBar(false)}
-          className="absolute top-5 right-5 text-4xl text-white"
-        />
+        >
+          <AiOutlineClose className="absolute top-5 right-5 text-4xl text-white" />
+        </button>
       )}
       <ul className="header-nav-list select-none">
         <li onClick={() => setToggleBar(false)}>

@@ -3,10 +3,10 @@
 @layer components {
   .header {
     @apply relative h-[130px];
-    .ccontainer {
+    .custom-container {
       @apply relative flex items-center gap-2.5;
       .header-logo {
-        @apply w-8;
+        @apply w-6.5;
       }
       .header-search {
         @apply absolute -bottom-14 left-1/2 -translate-x-1/2 text-sm h-10 w-[calc(100%-16px)];
@@ -22,17 +22,18 @@
           }
         }
       }
-      .header-cart-warpper {
+      .header-cart-wrapper {
         @apply ml-auto;
       }
     }
   }
 }
+
 /* Header Media 576px */
 @media (min-width: 576px) {
   .header {
     @apply h-[130px];
-    .ccontainer {
+    .custom-container {
       @apply justify-between gap-3 h-[45.88px];
       .header-logo {
         @apply w-10 h-full;
@@ -58,17 +59,19 @@
     }
   }
 }
+
 /* Header Media 768px */
 @media (min-width: 768px) {
   .header-search {
     @apply w-[calc(100%-34px)];
   }
 }
+
 /* Header Media 992px */
 @media (min-width: 992px) {
   .header {
     @apply h-fit;
-    .ccontainer {
+    .custom-container {
       .header-search {
         @apply static bottom-auto left-auto translate-x-0 text-sm w-[40%] h-[45.88px];
       }

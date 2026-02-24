@@ -1,13 +1,14 @@
 /* eslint-disable react-refresh/only-export-components */
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - Imports
-// --- React
-import {createContext, useContext, useReducer} from "react";
-// --- React Hot Toast
+// Libraries
+import { createContext, useContext, useEffect, useReducer } from "react";
 import toast from "react-hot-toast";
-// --- Data
-import {books} from "@/pages/home/data/books";
-// --- Types
-import type {BooksProps} from "@/types";
+
+// Data
+import { books } from "@/pages/home/data/books";
+
+// Types
+import type { BookType } from "@/types/types";
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - Types
 // --- Main Components Props
@@ -15,16 +16,16 @@ type CartContextProviderProps = {
   children: React.ReactNode;
 };
 // --- Cart State Props
-export type CartStateProps = BooksProps & {
+export type CartStateProps = BookType & {
   amount: number;
 };
 // --- Cart Action Props
 type CartActionProps =
   | {
       type: "ADD_TO_CART" | "INCREASE" | "DECREASE";
-      payload: {id: number; amount: number};
+      payload: { id: number; amount: number };
     }
-  | {type: "DELETE_FROM_CART"; payload: {id: number}};
+  | { type: "DELETE_FROM_CART"; payload: { id: number } };
 // --- Cart Context Props
 type CartContextProps = {
   dispatch: React.ActionDispatch<[action: CartActionProps]>;
@@ -36,11 +37,14 @@ const CartContext = createContext<CartContextProps | null>(null);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - Reducer
 // --- Initial State
-const initialState: CartStateProps[] = [];
+const initialState: CartStateProps[] = JSON.parse(
+  window.localStorage.getItem("cart") || "[]",
+);
+
 // --- Reducer
 const reducer = (
   state: CartStateProps[] = initialState,
-  action: CartActionProps
+  action: CartActionProps,
 ) => {
   // Handle Delete Function
   function CartDelete(id: number) {
@@ -50,39 +54,48 @@ const reducer = (
   // Control Actions
   switch (action.type) {
     case "ADD_TO_CART": {
-      const {id, amount} = action.payload;
+      const { id, amount } = action.payload;
       const isExist = state.find((book) => book.id === id);
       if (isExist) {
         const result = state.map((book) =>
-          book.id === id ? {...book, amount: book.amount + amount} : book
+          book.id === id ? { ...book, amount: book.amount + amount } : book,
         );
         return result;
       }
-      const book = books.filter((book) => book.id === id)[0];
-      const result = {...book, amount: amount};
-      return [...state, {...result, amount: amount}];
+      const book = books.find((book) => book.id === id);
+      if (!book) {
+        toast.error("Book not found");
+        return state;
+      }
+      // const result = {...book, amount: amount};
+      const cart = [...state, { ...book, amount: amount }];
+      return cart;
     }
     case "DELETE_FROM_CART": {
-      const {id} = action.payload;
-      return [...CartDelete(id)];
+      const { id } = action.payload;
+      return CartDelete(id);
     }
     case "INCREASE": {
-      const {id} = action.payload;
+      const { id } = action.payload;
       const result = state.map((book) =>
-        book.id === id ? {...book, amount: book.amount + 1} : book
+        book.id === id ? { ...book, amount: book.amount + 1 } : book,
       );
       return result;
     }
     case "DECREASE": {
-      const {id} = action.payload;
-      const book = state.filter((book) => book.id === id)[0];
+      const { id } = action.payload;
+      const book = state.find((book) => book.id === id);
+      if (!book) {
+        toast.error("Book not found");
+        return state;
+      }
       // Delete if amount equal 1
       if (book.amount === 1) {
         toast.success("Successfully removed from cart!");
-        return [...CartDelete(id)];
+        return CartDelete(id);
       }
       const result = state.map((book) =>
-        book.id === id ? {...book, amount: book.amount - 1} : book
+        book.id === id ? { ...book, amount: book.amount - 1 } : book,
       );
       return result;
     }
@@ -92,12 +105,18 @@ const reducer = (
 };
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - Main Component
-const CartContextProvider = ({children}: CartContextProviderProps) => {
+const CartContextProvider = ({ children }: CartContextProviderProps) => {
   // Cart Reducer
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  // State Trigger
+  useEffect(() => {
+    window.localStorage.setItem("cart", JSON.stringify(state));
+  }, [state]);
+
   // Return JSX
   return (
-    <CartContext.Provider value={{state, dispatch}}>
+    <CartContext.Provider value={{ state, dispatch }}>
       {children}
     </CartContext.Provider>
   );

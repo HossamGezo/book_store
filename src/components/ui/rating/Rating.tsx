@@ -1,25 +1,28 @@
 // React Icons
-import {FaStar} from "react-icons/fa";
-import {FaRegStar} from "react-icons/fa";
-import {FaStarHalfAlt} from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import { FaRegStar } from "react-icons/fa";
+import { FaStarHalfAlt } from "react-icons/fa";
+
+// Types
+type RatingProps = { rating: number };
+
 // Main Component
-const Rating = ({rating}: {rating: number}) => {
-  // Full Stars
-  const fullStarts = Math.trunc(rating);
-  const fullStarsArray = Array(fullStarts).fill(0);
-  // Half Star
-  const halfStar = rating - fullStarts >= 0.5 ? true : false;
-  // Empty Stars
-  const emptyStars = 5 - (fullStarts + +halfStar);
-  const emptyStarsArray = Array(emptyStars).fill(0);
+const Rating = ({ rating }: RatingProps) => {
+  // Star Calculations
+  const fullStars = Math.trunc(rating);
+  const halfStar = rating - fullStars >= 0.5 ? true : false;
+  const emptyStars = 5 - (fullStars + +halfStar);
+
   // Resturn JSX
   return (
-    <div className="rating *:text-yellow-500 *:text-lg flex gap-0.5">
-      {fullStarsArray.map((_, index) => (
+    <div className="*:text-yellow-500 *:text-lg flex gap-0.5">
+      {Array.from({ length: fullStars }, (_, index) => (
         <FaStar key={index} />
       ))}
+
       {halfStar && <FaStarHalfAlt />}
-      {emptyStarsArray.map((_, index) => (
+
+      {Array.from({ length: emptyStars }, (_, index) => (
         <FaRegStar key={index} />
       ))}
     </div>

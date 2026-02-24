@@ -1,13 +1,13 @@
-const USD_FORMATTER = new Intl.NumberFormat("en-US", {
-  currency: "USD",
-  style: "currency",
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-});
-
-const currencyFormat = (value: number | string | null | undefined) => {
+export const formatCurrency = (
+  value: number | string | undefined | null,
+  currency: string = "USD",
+) => {
   const amount = Number(value) || 0;
-  return USD_FORMATTER.format(amount);
-};
 
-export default currencyFormat;
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: currency,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(amount);
+};

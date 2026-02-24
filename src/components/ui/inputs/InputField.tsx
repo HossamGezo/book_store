@@ -1,16 +1,18 @@
 // Libraries
-import clsx from "clsx";
-// React Hook Form
-import type {Path, UseFormRegister, FieldValues} from "react-hook-form";
+import { cn } from "@/utils/cn";
+import type { Path, UseFormRegister, FieldValues } from "react-hook-form";
+
 // Types
-type InuptTypeOption = "text" | "email" | "password";
+type InputOptionType = "text" | "email" | "password";
+
 // Main Type
-type InputFieldType<T extends FieldValues> = {
-  type: InuptTypeOption;
+type InputFieldProps<T extends FieldValues> = {
+  type: InputOptionType;
   name: Path<T>;
   register: UseFormRegister<T>;
   error?: string;
 } & Omit<React.ComponentProps<"input">, "name">;
+
 // Main Component
 const InputField = <T extends FieldValues>({
   type = "text",
@@ -19,18 +21,18 @@ const InputField = <T extends FieldValues>({
   error,
   className,
   ...props
-}: InputFieldType<T>) => {
+}: InputFieldProps<T>) => {
   const baseStyles =
     "w-[325px] h-[45px] bg-white border-b-2 border-b-secondary/75 focus:border-b-primary outline-0 px-1.5 py-2 caret-primary rounded-sm placeholder:text-secondary/30 placeholder:text-sm";
   return (
-    <div className="customImput flex flex-col gap-1">
+    <div className="flex flex-col gap-1">
       <input
         type={type}
         {...props}
         {...register(name)}
-        className={clsx(baseStyles, className)}
+        className={cn(baseStyles, className)}
       />
-      {error && <span className="text-sm text-red-400/85">{error}</span>}
+      {error && <span className="text-sm text-red-500/85">{error}</span>}
     </div>
   );
 };

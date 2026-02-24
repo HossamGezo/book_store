@@ -1,26 +1,30 @@
-// React Router
-import {Link} from "react-router";
+// Libraries
+import { Link } from "react-router";
+
 // Custom Hooks
-import {useCartContext} from "@/context/CartContext";
+import { useCartContext } from "@/context/CartContext";
+
 // Components
 import CartSummary from "./components/CartSummary";
 import CartProduct from "./components/CartProduct";
+
 // Main Component
 const Cart = () => {
   // Custom Hooks
-  const {state} = useCartContext();
+  const { state } = useCartContext();
+
   // Return JSX
   return (
-    <div className="cart my-10">
-      <div className="ccontainer">
+    <div className="my-10 flex flex-col flex-1">
+      <div className="custom-container flex flex-col flex-1">
         {state.length > 0 ? (
           <>
-            <h1 className="cart-title mb-10 text-2xl md:text-3xl font-bold font-jetbrains tracking-tighter text-primary bg-white w-fit py-3 px-10 rounded-lg max-md:mx-auto">
+            <h1 className="mb-10 text-[23px] md:text-3xl font-bold font-jetbrains tracking-tighter text-primary bg-white w-fit py-3 px-10 rounded-lg max-md:mx-auto">
               Your Shopping Cart
             </h1>
-            <div className="cart-layout grid grid-cols-5 gap-10">
+            <div className="grid grid-cols-5 gap-10">
               {/* Cart Products */}
-              <div className="cart-products bg-blue-100 p-5 rounded-lg flex flex-col gap-5 h-[75vh] overflow-y-auto col-span-5 xl:col-span-3">
+              <div className="custom-scrollbar bg-blue-100 p-5 rounded-lg flex flex-col gap-5 h-[75vh] overflow-y-auto col-span-5 xl:col-span-3">
                 {state.map((product) => (
                   <CartProduct key={product.id} {...product} />
                 ))}
@@ -30,7 +34,7 @@ const Cart = () => {
             </div>
           </>
         ) : (
-          <div className="cart-no-products h-[calc(100vh-80px)] flex flex-col items-center justify-center text-[12px] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-red-500 font-jetbrains font-bold">
+          <div className="flex flex-col flex-1 items-center justify-center text-[18px] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-red-500 font-jetbrains font-bold">
             Your cart is empty. Go back to
             <Link
               to="/"

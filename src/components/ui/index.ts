@@ -4,3 +4,4 @@ export * from "./rating/Rating";
 export * from "./scroll-to-top/ScrollToTop";
 export * from "./title/Title";
 export * from "./card/Card";
+export * from "./page-loader/PageLoader";

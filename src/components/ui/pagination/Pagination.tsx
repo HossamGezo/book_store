@@ -1,18 +1,19 @@
 // React Icons
-import {PiArrowFatLineRightFill} from "react-icons/pi";
-import {PiArrowFatLineLeftFill} from "react-icons/pi";
+import { PiArrowFatLineRightFill } from "react-icons/pi";
+import { PiArrowFatLineLeftFill } from "react-icons/pi";
+
 // Components
 import Button from "../buttons/Button";
+
 // Types
-type PaginationType = {
+type PaginationProps = {
   paginateNumbers: number;
   page: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 };
+
 // Main Component
-const Pagination = ({paginateNumbers, page, setPage}: PaginationType) => {
-  // Pagination Array
-  const paginationArray = Array(paginateNumbers).fill(0);
+const Pagination = ({ paginateNumbers, page, setPage }: PaginationProps) => {
   // Previous And Next Functions
   const handlePrevious = () => {
     const next = Math.max(page - 1, 1);
@@ -22,9 +23,10 @@ const Pagination = ({paginateNumbers, page, setPage}: PaginationType) => {
     const previous = Math.min(page + 1, paginateNumbers);
     setPage(previous);
   };
+
   // Return JSX
   return (
-    <div className="pagination mx-auto max-md:w-[40%] w-[50%] flex-center">
+    <div className="mx-auto w-full flex flex-wrap items-center justify-center">
       <Button
         size="sm"
         radius="none"
@@ -34,7 +36,7 @@ const Pagination = ({paginateNumbers, page, setPage}: PaginationType) => {
       >
         <PiArrowFatLineLeftFill />
       </Button>
-      {paginationArray.map((_, index) => (
+      {Array.from({ length: paginateNumbers }, (_, index) => (
         <Button
           size="sm"
           radius="none"

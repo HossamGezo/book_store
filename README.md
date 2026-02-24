@@ -1,7 +1,8 @@
 # 📚 Bookstore - Modern E-Commerce Frontend
 
 <div align="center">
-[![Live Demo](https://img.shields.io/badge/DEMO-VIEW_LIVE-brightgreen?style=for-the-badge&logo=netlify)](https://hossamgezo-bookstore.netlify.app/)
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-00C853?style=for-the-badge&logo=netlify&logoColor=white)](https://bookstore.netlify.app/)
 
 ![Netlify Status](https://img.shields.io/badge/Netlify-Success-00C7B7?style=flat&logo=netlify)
 ![React](https://img.shields.io/badge/React_19-%2320232a?style=flat&logo=react)

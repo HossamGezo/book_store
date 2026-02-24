@@ -23,7 +23,9 @@
 ---
 
 <div align="center">
-  <img src="assets/bookstore-ui.png" alt="Bookstore UI" width="900" style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
+  <a href="https://hossamgezo-bookstore.netlify.app/" target="_blank">
+    <img src="assets/bookstore-ui.png" alt="Bookstore UI" width="900" style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer;"/>
+  </a>
 </div>
 
 ---

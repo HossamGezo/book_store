@@ -26,7 +26,7 @@ const Pagination = ({ paginateNumbers, page, setPage }: PaginationProps) => {
 
   // Return JSX
   return (
-    <div className="pagination mx-auto w-full flex flex-wrap items-center justify-center">
+    <div className="mx-auto w-full flex flex-wrap items-center justify-center">
       <Button
         size="sm"
         radius="none"

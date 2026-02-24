@@ -1,4 +1,5 @@
 // Libraries
+import { Suspense } from "react";
 import { Outlet } from "react-router";
 import { Toaster } from "react-hot-toast";
 
@@ -8,7 +9,7 @@ import Header from "@/layouts/header/Header";
 import ScrollToTop from "@/components/ui/scroll-to-top/ScrollToTop";
 import PopupContextProvider from "@/context/PopupContext";
 import CartContextProvider from "@/context/CartContext";
-import { Suspense } from "react";
+import PageLoader from "@/components/ui/page-loader/PageLoader";
 
 // Main Component
 const MainLayout = () => {
@@ -23,8 +24,8 @@ const MainLayout = () => {
             <main className="grow flex flex-col">
               <Suspense
                 fallback={
-                  <div className="grow flex items-center justify-center">
-                    <div>Loading...</div>
+                  <div className="grow">
+                    <PageLoader />
                   </div>
                 }
               >

@@ -2,7 +2,7 @@
 import { Link } from "react-router";
 
 // Main Component
-const Error = () => {
+const NotFound = () => {
   return (
     <div className="container m-auto flex flex-col justify-center items-center text-center grow">
       <h1 className="text-[150px] md:text-[200px] text-black font-bold">404</h1>
@@ -19,4 +19,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default NotFound;

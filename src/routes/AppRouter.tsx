@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 // Components
 import MainLayout from "@/layouts/MainLayout";
 import Home from "@/pages/home/Home";
+import NotFound from "@/pages/error/NotFound";
 
 // Lazy Loading Pages
 const BookDetails = React.lazy(
@@ -17,7 +18,6 @@ const Contact = React.lazy(() => import("@/pages/contact/Contact"));
 const Register = React.lazy(() => import("@/pages/auth/Register"));
 const Login = React.lazy(() => import("@/pages/auth/Login"));
 const ResetPassword = React.lazy(() => import("@/pages/auth/ResetPassword"));
-const NotFound = React.lazy(() => import("@/pages/error/NotFound"));
 
 // App Routes
 const router = createBrowserRouter([

@@ -1,4 +1,5 @@
 // Libraries
+import { useMemo } from "react";
 import { useNavigate } from "react-router";
 
 // Custom Hooks
@@ -16,9 +17,9 @@ const CartSummary = () => {
   const { state } = useCartContext();
 
   // Sum Logic
-  const total = state.reduce((acc, cur) => {
-    return acc + cur.price * cur.amount;
-  }, 0);
+  const total = useMemo(() => {
+    return state.reduce((acc, cur) => acc + cur.price * cur.amount, 0);
+  }, [state]);
 
   // Navigate
   const navigate = useNavigate();

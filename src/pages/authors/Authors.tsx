@@ -1,5 +1,5 @@
 // Libraries
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 // React Icons
 import { CgClose } from "react-icons/cg";
@@ -17,20 +17,23 @@ const Authors = () => {
   const handleClick = () => {
     setSearch("");
   };
+
   // Search Logic
-  const searchResult = () => {
-    const result = authors.filter((author) =>
+  const searchResult = useMemo(() => {
+    return authors.filter((author) =>
       author.name.toUpperCase().includes(search.toUpperCase()),
     );
-    return result;
-  };
+  }, [search]);
+
   // Pagination Logic
   const [page, setPage] = useState(1);
   const paginateNumbers = Math.ceil(authors.length / 8);
-  const paginateAuthors =
-    search.length === 0
+  const paginateAuthors = useMemo(() => {
+    return search.length === 0
       ? authors.slice((page - 1) * 8, page * 8)
-      : searchResult();
+      : searchResult;
+  }, [page, search.length, searchResult]);
+
   // Return JSX
   return (
     <section className={`py-10 min-h-[calc(100vh-73.88px)] flex flex-col`}>

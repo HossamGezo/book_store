@@ -5,4 +5,4 @@ export * from "./scroll-to-top/ScrollToTop";
 export * from "./title/Title";
 export * from "./card/Card";
 export * from "./page-loader/PageLoader";
-export * from "./app-link/CustomLink";
+export * from "./custom-link/CustomLink";

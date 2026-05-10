@@ -43,14 +43,11 @@ body {
 
 /* Custom Scrollbar Utility */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 10px;
+  height: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
   background: var(--color-blue-300);
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: var(--color-blue-600);
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: var(--color-blue-700);
 }

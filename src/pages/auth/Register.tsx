@@ -26,7 +26,7 @@ const RegisterSchema = z
   })
   .refine((data) => data.password === data.confirmPassword, {
     path: ["confirmPassword"],
-    message: "Passwords doesn't match",
+    message: "Passwords don't match",
   });
 type RegisterSchemaType = z.infer<typeof RegisterSchema>;
 
@@ -39,7 +39,7 @@ const Register = () => {
     reset,
     formState: { errors },
   } = useForm<RegisterSchemaType>({
-    mode: "onChange",
+    mode: "onBlur",
     resolver: zodResolver(RegisterSchema),
   });
   // OnSubmit Function
@@ -96,7 +96,7 @@ const Register = () => {
         </Button>
       </form>
       <span className="text-lg font-light text-gray-500">
-        Don't have an account?
+        Already have an account?
         <Link
           to="/login"
           className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 ml-1"

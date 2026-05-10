@@ -28,7 +28,7 @@ const Login = () => {
     reset,
     formState: { errors },
   } = useForm<LoginSchemaType>({
-    mode: "onChange",
+    mode: "onBlur",
     resolver: zodResolver(LoginSchema),
   });
   // OnSubmit Function

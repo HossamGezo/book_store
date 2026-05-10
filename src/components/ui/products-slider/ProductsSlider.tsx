@@ -1,6 +1,6 @@
 // Libraries
 import { useRef, useState } from "react";
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 // React Icons
 import { FaRightToBracket } from "react-icons/fa6";
@@ -40,7 +40,7 @@ const ProductsSlider = ({ children, arrayLength }: ProductsSliderProps) => {
     <div className="relative w-full custom-container" ref={viewportRef}>
       <div className="py-5 overflow-x-auto custom-scrollbar custom-container lg:overflow-hidden">
         <div
-          className={clsx("flex gap-5 w-max transition-transform duration-500")}
+          className={cn("flex gap-5 w-max transition-transform duration-500")}
           style={{ transform: `translateX(${slide}px)` }}
         >
           {children}
@@ -49,7 +49,7 @@ const ProductsSlider = ({ children, arrayLength }: ProductsSliderProps) => {
           <button
             onClick={previousSlide}
             aria-label="Previous slide"
-            className={clsx(
+            className={cn(
               Math.round(slide) >= 0
                 ? "cursor-not-allowed opacity-50"
                 : "cursor-pointer opacity-100 hover:bg-blue-600 active:bg-primary/85",
@@ -60,7 +60,7 @@ const ProductsSlider = ({ children, arrayLength }: ProductsSliderProps) => {
           <button
             onClick={nextSlide}
             aria-label="Next slide"
-            className={clsx(
+            className={cn(
               slide <= -availableScroll
                 ? "cursor-not-allowed opacity-50"
                 : "cursor-pointer opacity-100 hover:bg-blue-600 active:bg-primary/85",

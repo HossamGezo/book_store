@@ -1,68 +1,80 @@
-# 📚 Bookstore - Modern E-Commerce Frontend
+# 📚 Bookstore - Advanced E-Commerce Logic & State Management
 
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-00C853?style=for-the-badge&logo=netlify&logoColor=white)](https://hossamgezo-bookstore.netlify.app/)
-
-![Netlify Status](https://img.shields.io/badge/Netlify-Success-00C7B7?style=flat&logo=netlify)
 ![React](https://img.shields.io/badge/React_19-%2320232a?style=flat&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat&logo=typescript)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_4-38B2AC?style=flat&logo=tailwind-css)
-![ContextAPI](https://img.shields.io/badge/State-Context_API-61DAFB?style=flat&logo=react)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+![Zod](https://img.shields.io/badge/Zod-3E67B1?style=flat&logo=zod&logoColor=white)
+![ReactRouter](https://img.shields.io/badge/React_Router_7-CA4245?style=flat&logo=react-router)
+![Vite](https://img.shields.io/badge/Vite_6-646CFF?style=flat&logo=vite)
+
+<br />
+
+[**🌐 Live Demo**](https://hossamgezo-bookstore.netlify.app/) | [**💻 GitHub Repository**](https://github.com/HossamGezo/book_store)
 
 </div>
 
 ---
 
-### 🔗 Quick Links
+## 🌟 Overview
 
-- **🚀 Live Website:** [https://hossamgezo-bookstore.netlify.app/](https://hossamgezo-bookstore.netlify.app/)
-- **💻 GitHub Repository:** [https://github.com/HossamGezo/book_store](https://github.com/HossamGezo/book_store)
+An advanced e-commerce frontend engineered with **React 19** and **TypeScript**. This project demonstrates mastery of complex state management using **Context API** and **useReducer**, delivering a high-performance shopping experience with persistent data synchronization and a refined UI featuring custom skeleton loading strategies.
 
 ---
 
-<div align="center">
-  <a href="https://hossamgezo-bookstore.netlify.app/" target="_blank">
-    <img src="assets/bookstore-ui.png" alt="Bookstore UI" width="900" style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer;"/>
-  </a>
-</div>
+## 📸 Visual Journey
+
+### 🖥️ Desktop Experience
+
+|           Premium Storefront & Sliders            |              Real-time Author Discovery              |
+| :-----------------------------------------------: | :--------------------------------------------------: |
+| <img src="assets/desktop-hero.png" width="450" /> | <img src="assets/desktop-authors.png" width="450" /> |
+
+|                 Quick View Popup Logic                  |                   In-depth Book Details                   |
+| :-----------------------------------------------------: | :-------------------------------------------------------: |
+| <img src="assets/desktop-quick-view.png" width="450" /> | <img src="assets/desktop-book-details.png" width="450" /> |
+
+|             Professional Skeleton Loading              |             Advanced Cart Management              |
+| :----------------------------------------------------: | :-----------------------------------------------: |
+| <img src="assets/desktop-skeletons.png" width="450" /> | <img src="assets/desktop-cart.png" width="450" /> |
+
+### 📱 Mobile-First Excellence
+
+|                    Home View                     |                   Navigation                    |                    Secure Access                     |                     Search UI                      |
+| :----------------------------------------------: | :---------------------------------------------: | :--------------------------------------------------: | :------------------------------------------------: |
+| <img src="assets/mobile-home.png" width="200" /> | <img src="assets/mobile-nav.png" width="200" /> | <img src="assets/mobile-register.png" width="200" /> | <img src="assets/mobile-search.png" width="200" /> |
 
 ---
 
 ## ✨ Key Features
 
-- **🔍 Real-time Search Engine:** Dynamic filtering for Authors and Books with instant UI updates.
-- **🛒 Advanced Shopping Cart:** Full-featured cart with `useReducer` logic and persistent **LocalStorage** sync.
-- **📱 Adaptive Pagination:** Smart pagination system that changes items per page based on screen size.
-- **⚡ High Performance:** Lightning-fast loads using **React Lazy Loading**, **Suspense**, and **Memoization**.
-- **🏗️ Modular Architecture:** Extremely organized code structure designed for scalability and maintenance.
-- **♿ A11y & SEO:** Fully accessible UI with semantic HTML and optimized metadata.
+- **🔍 Real-time Search Engine:** High-performance dynamic filtering for authors and books with instant UI feedback.
+- **🛒 Advanced Cart Logic:** Full-featured shopping cart built with `useReducer` and persistent **LocalStorage** synchronization.
+- **⚡ Performance Engineered:** Optimized initial load times utilizing **React Lazy Loading**, **Suspense**, and **Memoization**.
+- **🏗️ Modular Architecture:** Highly organized code structure designed for enterprise-level scalability and maintenance.
+- **♿ UX Focused:** Seamless navigation with zero layout shifts and accessible interactive elements.
 
 ---
 
-## 🛠️ Tech Stack & Tools
+## 🛠️ Technical Highlights
 
-| Architecture & Logic                                                              | Form & Validation                                                                      | Styling & UI                                                                             | Performance                                                                      |
-| :-------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------- |
-| ![React](https://img.shields.io/badge/React_19-blue?style=flat&logo=react)        | ![HookForm](https://img.shields.io/badge/Hook_Form-pink?style=flat&logo=reacthookform) | ![Tailwind](https://img.shields.io/badge/Tailwind_4-38B2AC?style=flat&logo=tailwind-css) | ![Skeleton](https://img.shields.io/badge/Pulse_Loaders-Custom-orange?style=flat) |
-| ![TS](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript)  | ![Zod](https://img.shields.io/badge/Zod_Validation-3E67B1?style=flat&logo=zod)         | ![Icons](https://img.shields.io/badge/React_Icons-eb5757?style=flat&logo=react)          | ![Lazy](https://img.shields.io/badge/Lazy_Loading-blue?style=flat)               |
-| ![Context](https://img.shields.io/badge/Context_API-61DAFB?style=flat&logo=react) | ![Toasts](https://img.shields.io/badge/Hot_Toasts-Success-green?style=flat)            | ![Flexbox](https://img.shields.io/badge/Layout-Flexbox_Grid-E34F26?style=flat)           | ![Memo](https://img.shields.io/badge/useMemo-Optimized-green?style=flat)         |
+### 🏗️ Advanced State Architecture
 
----
+- **Centralized Logic:** Implemented **Context API** combined with **useReducer** to handle complex cart operations, ensuring a predictable data flow without external libraries.
+- **Data Persistence:** Developed a robust synchronization layer to maintain user sessions and shopping states across browser reloads.
+- **Type Safety:** Utilized **TypeScript** to define precise data structures for books, authors, and application state, eliminating runtime errors.
 
-## 📝 Engineering Highlights
+### ⚡ Performance & UX Engineering
 
-### 🧪 Performance Optimization
+- **Skeleton Screens:** Engineered custom **Skeleton Pulse Loaders** for all lazy-loaded routes to provide a premium, shift-free loading experience.
+- **Rendering Optimization:** Applied **Memoization** (`useMemo`, `useCallback`) to heavy search and filter computations to ensure smooth UI transitions.
+- **Adaptive Layouts:** Built an intelligent **Product Slider** and dynamic pagination system that automatically adapts to various screen resolutions.
 
-- **Memoized Search:** Integrated `useMemo` for Author search to ensure smooth filtering even with large datasets.
-- **Efficient Re-renders:** Optimized state management to prevent unnecessary DOM updates.
-- **Custom Skeleton Screens:** Implemented professional "Pulse" placeholders for every lazy-loaded route to eliminate **Layout Shift (CLS)**.
+### 🔐 Form & Input Validation
 
-### 🔐 Form Management
-
-- **Type-Safe Validation:** Full Zod integration for Login, Register, and Contact forms.
-- **Reusable Form Atoms:** Highly flexible `InputField` and `PasswordField` components.
+- **Schema Validation:** Integrated **Zod** with **React Hook Form** to enforce strict data integrity across authentication and contact modules.
+- **Atomic Components:** Created a library of highly reusable form atoms ensuring consistent design patterns project-wide.
 
 ---
 
@@ -71,31 +83,50 @@
 ```text
 src/
 ├── components/
-│   ├── ui/          # Atomic UI components (Button, Input, PageLoader, Skeletons)
-│   └── sections/    # Modular UI blocks (ProductsSection)
-├── context/         # Centralized State (Cart & Popup Contexts)
-├── data/            # Domain data (Books, Authors, Services)
-├── layouts/         # Page wrappers & Global layout (MainLayout, Header, Footer)
-├── pages/
-│   ├── home/        # Hero Slider, Catalog, and Featured sections
-│   ├── auth/        # Authentication module (Login, Register, Reset)
-│   ├── cart/        # Cart management module
-│   ├── authors/     # Author exploration with search logic
-│   └── book-details/# Dynamic routing for book views
+│   ├── ui/          # Reusable Atoms (Buttons, Inputs, Skeletons)
+│   └── sections/    # Modular UI blocks (Hero, Catalog, Feature blocks)
+├── context/         # Global State Management (Cart & UI Contexts)
+├── pages/           # Domain-specific views (Home, Auth, Cart, Authors)
 ├── routes/          # Centralized React Router configuration
-├── types/           # Domain-driven TypeScript definitions
-└── utils/           # Helper functions (cn utility, formatCurrency)
+├── types/           # Global TypeScript definitions
+├── utils/           # Shared utility functions (Formatting, UI helpers)
+└── data/            # Centralized local data repository
 ```
 
 ---
 
-## 👨‍💻 Author
+## 🛠️ Installation & Local Setup
 
-**Hossam Gouda**
+### 1. Clone the repository
 
-- **GitHub:** [@HossamGezo](https://github.com/HossamGezo)
-- **LinkedIn:** [Hossam Gouda](https://linkedin.com/in/your-profile)
+```bash
+git clone https://github.com/HossamGezo/book_store.git
+cd book_store
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run Development
+
+```bash
+npm run dev
+```
 
 ---
 
-_This project showcases mastery of React state management and professional frontend engineering standards._
+## 👨‍💻 Connect with Me
+
+If you have any questions about this project or want to collaborate, feel free to reach out!
+
+- **LinkedIn:** [Hossam Gouda](https://linkedin.com/in/hossam-gouda)
+- **GitHub:** [@HossamGezo](https://github.com/HossamGezo)
+- **Email:** ha2ghossam10@gmail.com
+
+---
+
+Developed with precision by **Hossam Gouda 💠**  
+**Front-End Engineer focused on building scalable and maintainable user interfaces.**

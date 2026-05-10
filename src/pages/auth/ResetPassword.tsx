@@ -23,7 +23,7 @@ const ResetPassword = () => {
     reset,
     formState: { errors },
   } = useForm<ResetEmailSchemaType>({
-    mode: "onChange",
+    mode: "onBlur",
     resolver: zodResolver(ResetEmailSchema),
   });
   // OnSubmit Function

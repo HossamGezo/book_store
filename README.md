@@ -120,13 +120,11 @@ npm run dev
 
 ## 👨‍💻 Connect with Me
 
-If you have any questions about this project or want to collaborate, feel free to reach out!
-
-- **LinkedIn:** [Hossam Gouda](https://linkedin.com/in/hossam-gouda)
-- **GitHub:** [@HossamGezo](https://github.com/HossamGezo)
-- **Email:** ha2ghossam10@gmail.com
+- **LinkedIn:** [Hossam Gouda](https://www.linkedin.com/in/hossam-gouda-software-engineer)
+- **GitHub:** [Hossam Gouda](https://github.com/HossamGezo)
+- **Email:** hossamgouda27@gmail.com
 
 ---
 
-Developed with precision by **Hossam Gouda 💠**  
+Developed with precision by **Hossam Gouda**  
 **Front-End Engineer focused on building scalable and maintainable user interfaces.**

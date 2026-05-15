@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hossamgezo-bookstore.netlify.app/sitemap.xml

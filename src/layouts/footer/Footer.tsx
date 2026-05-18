@@ -17,7 +17,7 @@ import "./footer.css";
 // Main Component
 const Footer = () => {
   return (
-    <section className="footer py-10 bg-primary text-white">
+    <footer className="footer py-10 bg-primary text-white">
       <div className="custom-container">
         {/* Social Media */}
         <div className="footer-social-media max-lg:flex-col flex items-center justify-around text-center gap-5 border-b-2 border-white pb-5 mb-10">
@@ -30,40 +30,48 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow us on Instagram"
+              className="focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden rounded-sm transition-all p-0.5"
             >
-              <FaInstagramSquare className="text-[#E1306C]" />
+              <FaInstagramSquare
+                className="text-[#E1306C]"
+                aria-hidden="true"
+              />
             </a>
             <a
               href="#"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow us on Telegram"
+              className="focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden rounded-sm transition-all p-0.5"
             >
-              <FaTelegram className="text-[#0088cc]" />
+              <FaTelegram className="text-[#0088cc]" aria-hidden="true" />
             </a>
             <a
               href="#"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow us on Facebook"
+              className="focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden rounded-sm transition-all p-0.5"
             >
-              <FaFacebookSquare className="text-[#1877f2]" />
+              <FaFacebookSquare className="text-[#1877f2]" aria-hidden="true" />
             </a>
             <a
               href="#"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow us on Youtube"
+              className="focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden rounded-sm transition-all p-0.5"
             >
-              <BsYoutube className="text-[#ff0000]" />
+              <BsYoutube className="text-[#ff0000]" aria-hidden="true" />
             </a>
             <a
               href="#"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow us on X"
+              className="focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden rounded-sm transition-all p-0.5"
             >
-              <BsTwitterX className="text-[#333]" />
+              <BsTwitterX className="text-[#333]" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -71,39 +79,67 @@ const Footer = () => {
         {/* Footer Description */}
         <div className="footer-description grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {/* Footer Description Links */}
-          <div className="footer-description-links flex flex-col">
-            <h3 className="select-none">Useful Links</h3>
-            <Link to="/">Home</Link>
-            <Link to="/authors">Authors</Link>
-            <Link to="/">Blog</Link>
-            <Link to="/about">About Us</Link>
-            <Link to="/contact">Contact Us</Link>
-          </div>
+          <nav
+            className="footer-description-links flex flex-col gap-1.5"
+            aria-label="Footer Useful Links"
+          >
+            <h3 className="select-none text-xl font-bold mb-2">Useful Links</h3>
+            <Link
+              to="/"
+              className="w-fit hover:text-blue-200 hover:underline transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-hidden rounded-sm px-1"
+            >
+              Home
+            </Link>
+            <Link
+              to="/authors"
+              className="w-fit hover:text-blue-200 hover:underline transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-hidden rounded-sm px-1"
+            >
+              Authors
+            </Link>
+            <Link
+              to="/"
+              className="w-fit hover:text-blue-200 hover:underline transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-hidden rounded-sm px-1"
+            >
+              Blog
+            </Link>
+            <Link
+              to="/about"
+              className="w-fit hover:text-blue-200 hover:underline transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-hidden rounded-sm px-1"
+            >
+              About Us
+            </Link>
+            <Link
+              to="/contact"
+              className="w-fit hover:text-blue-200 hover:underline transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-hidden rounded-sm px-1"
+            >
+              Contact Us
+            </Link>
+          </nav>
           {/* Footer Description Address */}
           <div className="footer-description-address">
-            <h3 className="footer-description-address-title select-none">
+            <h3 className="footer-description-address-title select-none text-xl font-bold mb-3.5">
               Contact Information
             </h3>
-            <div className="footer-description-address-location">
-              <ImLocation />
+            <div className="footer-description-address-location flex items-center gap-2 mb-2">
+              <ImLocation aria-hidden="true" />
               Egypt – Cairo – Nasr City
             </div>
-            <div className="footer-description-address-telephone">
-              <BsFillTelephoneFill />
+            <div className="footer-description-address-telephone flex items-center gap-2 mb-2">
+              <BsFillTelephoneFill aria-hidden="true" />
               123-456-789
             </div>
-            <div className="footer-description-address-email">
-              <MdEmail />
+            <div className="footer-description-address-email flex items-center gap-2">
+              <MdEmail aria-hidden="true" />
               info@fakeemail.com
             </div>
           </div>
 
           {/* Footer About Us */}
           <div className="footer-description-about-us md:col-span-2">
-            <h3 className="footer-description-about-us-title select-none">
+            <h3 className="footer-description-about-us-title select-none text-xl font-bold mb-3.5">
               About Us
             </h3>
-            <p className="footer-description-about-us-desc">
+            <p className="footer-description-about-us-desc text-justify leading-relaxed text-sm opacity-90">
               Welcome to our online bookstore — your trusted destination for
               discovering, exploring, and purchasing books from every genre. We
               believe that reading is more than a hobby; it is a journey that
@@ -119,7 +155,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
 export default Footer;

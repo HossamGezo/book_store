@@ -14,6 +14,7 @@ type NavBarProps = {
 const NavBar = ({ toggleBar, setToggleBar }: NavBarProps) => {
   return (
     <nav
+      id="primary-navigation"
       className={`header-nav z-50 ${
         toggleBar
           ? "[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]"
@@ -25,8 +26,12 @@ const NavBar = ({ toggleBar, setToggleBar }: NavBarProps) => {
           type="button"
           aria-label="Close Menu"
           onClick={() => setToggleBar(false)}
+          className="absolute top-5 right-5 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-hidden rounded-sm transition-all p-1"
         >
-          <AiOutlineClose className="absolute top-5 right-5 text-4xl text-white" />
+          <AiOutlineClose
+            className="text-4xl text-white cursor-pointer"
+            aria-hidden="true"
+          />
         </button>
       )}
       <ul className="header-nav-list select-none">

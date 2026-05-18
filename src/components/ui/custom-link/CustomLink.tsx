@@ -15,10 +15,10 @@ const CustomLink = ({ to, children, className, ...rest }: CustomLinkProps) => {
       to={to}
       className={({ isActive }) =>
         cn(
-          "h-full w-full flex items-center pl-5 transition-colors duration-300 border-r border-blue-600 sm:text-[12px] md:text-[16px]",
+          "h-full w-full flex items-center pl-5 transition-all duration-300 border-r border-blue-600 sm:text-[12px] md:text-[16px] text-white focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:outline-hidden",
           isActive
-            ? "bg-blue-700 text-white"
-            : "bg-secondary hover:bg-blue-400",
+            ? "bg-blue-800 text-white"
+            : "bg-primary hover:bg-blue-800 hover:text-white",
           className,
         )
       }

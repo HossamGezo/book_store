@@ -26,21 +26,27 @@ const Pagination = ({ paginateNumbers, page, setPage }: PaginationProps) => {
 
   // Return JSX
   return (
-    <div className="mx-auto w-full flex flex-wrap items-center justify-center">
+    <nav
+      aria-label="Pagination Navigation"
+      className="mx-auto w-full flex flex-wrap items-center justify-center"
+    >
       <Button
         size="sm"
         radius="none"
+        aria-label="Previous page"
         className="rounded-l-sm border-r border-r-blue-500"
         disabled={page === 1}
         onClick={handlePrevious}
       >
-        <PiArrowFatLineLeftFill />
+        <PiArrowFatLineLeftFill aria-hidden="true" />
       </Button>
       {Array.from({ length: paginateNumbers }, (_, index) => (
         <Button
           size="sm"
           radius="none"
           key={index + 1}
+          aria-label={`Go to page ${index + 1}`}
+          aria-current={page === index + 1 ? "page" : undefined}
           className={`border-r border-r-blue-500 ${
             page === index + 1 ? "active" : ""
           }`}
@@ -52,13 +58,14 @@ const Pagination = ({ paginateNumbers, page, setPage }: PaginationProps) => {
       <Button
         size="sm"
         radius="none"
+        aria-label="Next page"
         className="rounded-r-sm"
         disabled={page === paginateNumbers}
         onClick={handleNext}
       >
-        <PiArrowFatLineRightFill />
+        <PiArrowFatLineRightFill aria-hidden="true" />
       </Button>
-    </div>
+    </nav>
   );
 };
 export default Pagination;

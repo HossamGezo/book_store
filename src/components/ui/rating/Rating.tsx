@@ -13,17 +13,21 @@ const Rating = ({ rating }: RatingProps) => {
   const halfStar = rating - fullStars >= 0.5 ? true : false;
   const emptyStars = 5 - (fullStars + +halfStar);
 
-  // Resturn JSX
+  // Return JSX
   return (
-    <div className="*:text-yellow-500 *:text-lg flex gap-0.5">
+    <div
+      role="img"
+      className="stars flex gap-0.5 text-amber-600 text-lg"
+      aria-label={`Rating: ${rating} out of 5`}
+    >
       {Array.from({ length: fullStars }, (_, index) => (
-        <FaStar key={index} />
+        <FaStar key={index} aria-hidden="true" />
       ))}
 
-      {halfStar && <FaStarHalfAlt />}
+      {halfStar && <FaStarHalfAlt aria-hidden="true" />}
 
       {Array.from({ length: emptyStars }, (_, index) => (
-        <FaRegStar key={index} />
+        <FaRegStar key={index} aria-hidden="true" />
       ))}
     </div>
   );

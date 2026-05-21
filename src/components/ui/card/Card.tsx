@@ -39,24 +39,27 @@ const Card = ({ id, price, rating, title, reviews, image }: BookType) => {
 
   // Return JSX
   return (
-    <div className="relative group h-[500px] w-[330px] lg:w-[311px] py-1.5 rounded-lg bg-white shadow-normal border-t-2 border-t-transparent hover:scale-[1.01] hover:-translate-y-1.5 hover:shadow-scale hover:border-t-2 hover:border-t-primary/65 transition-all duration-500">
+    <article className="relative group h-[500px] w-[330px] lg:w-[311px] py-1.5 rounded-lg bg-white shadow-normal border-t-2 border-t-transparent hover:scale-[1.01] hover:-translate-y-1.5 hover:shadow-scale hover:border-t-2 hover:border-t-primary/65 transition-all duration-500">
       <div className="h-[60%] p-1 flex items-center justify-center">
         <img
           draggable={false}
           src={`${image}`}
           alt={title}
+          width="200"
+          height="280"
+          loading="lazy"
           className="h-full object-contain"
         />
       </div>
       <div className="p-1.5">
-        <h3 className="text-lg font-medium h-14">
-          {title}_{id}
-        </h3>
+        <h3 className="text-lg font-bold h-14 text-gray-900">{title}</h3>
         <div className="my-2.5">
           <div className="flex items-center gap-2.5">
             <Rating rating={rating} />
-            <span className="text-yellow-500 text-lg">{rating}</span>
-            <span className="text-sm text-gray-500">({reviews} reviews)</span>
+            <span className="text-amber-700 text-lg font-bold">{rating}</span>
+            <span className="text-sm text-gray-600 font-medium">
+              ({reviews} reviews)
+            </span>
           </div>
           <div className="text-center mt-1.5 text-xl text-red-700 font-bold">
             {formatCurrency(price)}
@@ -65,31 +68,43 @@ const Card = ({ id, price, rating, title, reviews, image }: BookType) => {
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-full flex items-center justify-center gap-5 text-xl pt-3 border-t-2 border-t-primary/45 group-hover:border-t-primary/65">
           <button
             type="button"
-            aria-label="View book details"
+            aria-label={`View details of ${title}`}
+            className="focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden rounded-sm transition-all p-1"
             onClick={() => setTogglePopup({ isOpen: true, bookId: id })}
           >
-            <FaEye className="text-primary/65 hover:text-primary cursor-pointer" />
+            <FaEye
+              className="text-primary/65 hover:text-primary cursor-pointer"
+              aria-hidden="true"
+            />
           </button>
           {!isInCart ? (
             <button
               type="button"
-              aria-label="Add to cart"
+              aria-label={`Add ${title} to cart`}
+              className="focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:outline-hidden rounded-sm transition-all p-1"
               onClick={() => addToCart(id)}
             >
-              <MdOutlineShoppingCart className="text-green-600/65 hover:text-green-600 cursor-pointer" />
+              <MdOutlineShoppingCart
+                className="text-green-600/65 hover:text-green-600 cursor-pointer"
+                aria-hidden="true"
+              />
             </button>
           ) : (
             <button
               type="button"
-              aria-label="Remove from cart"
+              aria-label={`Remove ${title} from cart`}
+              className="focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:outline-hidden rounded-sm transition-all p-1"
               onClick={() => removeFromCart(id)}
             >
-              <MdShoppingCart className="text-green-600/65 hover:text-green-600 cursor-pointer" />
+              <MdShoppingCart
+                className="text-green-600/65 hover:text-green-600 cursor-pointer"
+                aria-hidden="true"
+              />
             </button>
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

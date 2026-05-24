@@ -49,35 +49,38 @@ const ProductPopup = ({ bookId }: ProductPopupProps) => {
   return (
     <div className="flex max-md:flex-col p-5">
       {/* Product Popup Book Image */}
-      <div className="h-[200px] w-[200px] md:h-[400px] md:w-[30%]">
+      <div className="h-[200px] w-[200px] md:h-[400px] md:w-[30%] flex items-center justify-center">
         <img
           src={`${book.image}`}
           alt={book.title}
+          width="200"
+          height="400"
+          loading="lazy"
           className="h-full object-contain"
         />
       </div>
       {/* Product Popup Book Details */}
-      <div className="w-[70%] py-5 md:pl-10">
+      <div className="w-full py-5 md:pl-10">
         {/* Product Popup Book Describtion */}
         <div className="flex flex-col gap-2.5 md:gap-5">
-          <h1 className="text-3xl font-bold">{book.title}</h1>
+          <h1 className="text-xl font-bold">{book.title}</h1>
           <div className="span text-lg">
-            <b className="mr-1 text-xl">Status :</b>
+            <b className="mr-1 text-lg">Status :</b>
             <span>{book.inStock ? "In Stock" : "Out Of Stock"}</span>
           </div>
           <div className="flex items-center gap-2.5">
             <Rating rating={book.rating} />
-            <span className="text-yellow-500 font-medium">{book.rating}</span>
+            <span className="text-amber-700 font-bold">{book.rating}</span>
             <span className="text-sm text-gray-500 shrink-0">
               ({book.reviews} reviews)
             </span>
           </div>
           <div className="flex">
-            <b className="mr-1 text-xl shrink-0">Author :</b>
+            <b className="mr-1 text-lg shrink-0">Author :</b>
             <span className="text-primary text-lg shrink-0">{book.author}</span>
           </div>
           <div>
-            <b className="mr-1 text-xl">Price :</b>
+            <b className="mr-1 text-lg">Price :</b>
             <span className="text-red-500 text-lg">
               {formatCurrency(book.price)}
             </span>
@@ -89,8 +92,9 @@ const ProductPopup = ({ bookId }: ProductPopupProps) => {
             min={1}
             type="number"
             value={quantity}
+            aria-label="Book quantity"
             onChange={(e) => setQuantity(Math.max(1, +e.target.value))}
-            className="w-[150px] py-1.5 h-10 bg-white border-2 border-secondary/75 focus:border-primary outline-0 px-1.5 caret-primary rounded-sm placeholder:text-secondary/30 placeholder:text-sm"
+            className="w-[150px] py-1.5 h-10 bg-white border-2 border-secondary/75 focus:border-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden outline-0 px-1.5 caret-primary rounded-sm placeholder:text-secondary/30 placeholder:text-sm transition-all"
           />
           <Button
             variant="secondary"

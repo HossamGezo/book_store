@@ -40,9 +40,13 @@ const PasswordField = <T extends FieldValues>({
         type="button"
         onClick={() => setShowPassword((prev) => !prev)}
         aria-label={showPassword ? "Hide password" : "Show password"}
-        className="absolute top-[22.5px] right-4 -translate-y-1/2 text-gray-500 hover:text-blue-500 transition-colors cursor-pointer"
+        className="absolute top-[22.5px] right-4 -translate-y-1/2 text-gray-500 hover:text-blue-500 transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden rounded-sm"
       >
-        {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+        {showPassword ? (
+          <FaEyeSlash size={20} aria-hidden="true" />
+        ) : (
+          <FaEye size={20} aria-hidden="true" />
+        )}
       </button>
     </div>
   );

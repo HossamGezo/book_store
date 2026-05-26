@@ -4,10 +4,17 @@ type SlideProps = {
   description: string;
   image: string;
   gradient: string;
+  priority: boolean;
 };
 
 // Main Component
-const Slide = ({ gradient, image, title, description }: SlideProps) => {
+const Slide = ({
+  gradient,
+  image,
+  title,
+  description,
+  priority,
+}: SlideProps) => {
   return (
     <div
       className={`w-full shrink-0 h-[calc(100vh-129px)] lg:h-[calc(100vh-72.88px)] flex items-center justify-center flex-col lg:flex-row gap-16 ${gradient}`}
@@ -17,12 +24,16 @@ const Slide = ({ gradient, image, title, description }: SlideProps) => {
         <img
           src={image}
           alt={title}
+          width="450"
+          height="450"
+          fetchPriority={priority ? "high" : "low"}
+          loading={priority ? "eager" : "lazy"}
           className="object-contain"
           draggable="false"
         />
       </div>
       {/* Slide Description */}
-      <div className="text-[#333] font-serif text-center w-[335px] sm:w-[500px] xl:w-[550px] xxl:w-[900px] select-none">
+      <div className="text-gray-900 font-serif text-center w-[335px] sm:w-[500px] xl:w-[550px] xxl:w-[900px] select-none">
         <h3 className="mb-5 text-3xl sm:text-4xl lg:text-6xl xxl:text-[65px] font-bold tracking-wide">
           {title}
         </h3>

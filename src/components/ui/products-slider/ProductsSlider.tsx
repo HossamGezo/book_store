@@ -38,7 +38,11 @@ const ProductsSlider = ({ children, arrayLength }: ProductsSliderProps) => {
   // Return JSX
   return (
     <div className="relative w-full custom-container" ref={viewportRef}>
-      <div className="py-5 overflow-x-auto custom-scrollbar custom-container lg:overflow-hidden">
+      <div
+        tabIndex={0}
+        aria-label="Products list"
+        className="py-5 overflow-x-auto custom-scrollbar custom-container lg:overflow-hidden"
+      >
         <div
           className={cn("flex gap-5 w-max transition-transform duration-500")}
           style={{ transform: `translateX(${slide}px)` }}
@@ -47,6 +51,7 @@ const ProductsSlider = ({ children, arrayLength }: ProductsSliderProps) => {
         </div>
         <div className="products-slider-btns absolute w-full top-1/2 left-1/2 -translate-1/2 flex items-center">
           <button
+            type="button"
             onClick={previousSlide}
             aria-label="Previous slide"
             className={cn(
@@ -55,9 +60,10 @@ const ProductsSlider = ({ children, arrayLength }: ProductsSliderProps) => {
                 : "cursor-pointer opacity-100 hover:bg-blue-600 active:bg-primary/85",
             )}
           >
-            <FaRightToBracket size={32} />
+            <FaRightToBracket size={32} aria-hidden="true" />
           </button>
           <button
+            type="button"
             onClick={nextSlide}
             aria-label="Next slide"
             className={cn(
@@ -66,7 +72,7 @@ const ProductsSlider = ({ children, arrayLength }: ProductsSliderProps) => {
                 : "cursor-pointer opacity-100 hover:bg-blue-600 active:bg-primary/85",
             )}
           >
-            <FaRightToBracket size={32} />
+            <FaRightToBracket size={32} aria-hidden="true" />
           </button>
         </div>
       </div>

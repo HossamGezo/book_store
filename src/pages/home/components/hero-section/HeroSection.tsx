@@ -21,8 +21,8 @@ const HeroSection = () => {
         className="flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
-        {slides.map((slide) => (
-          <Slide key={slide.id} {...slide} />
+        {slides.map((slide, index) => (
+          <Slide key={slide.id} {...slide} priority={index === 0} />
         ))}
       </div>
       {/* Slider Buttons */}

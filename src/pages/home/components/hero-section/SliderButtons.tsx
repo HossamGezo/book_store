@@ -24,26 +24,26 @@ const SliderButtons = ({
         aria-label="Previous slide"
         disabled={currentSlide === 0}
         onClick={handlePrevious}
-        className={`absolute left-0 ${
+        className={`absolute left-0 focus-visible:ring-4 focus-visible:ring-white focus-visible:outline-hidden focus-visible:ring-offset-2 transition-all ${
           currentSlide === 0
             ? "opacity-40 cursor-not-allowed"
             : "hover:text-[#333] active:scale-[0.59] cursor-pointer"
         }`}
       >
-        <GrPrevious size={75} />
+        <GrPrevious size={75} aria-hidden="true" />
       </button>
       <button
         type="button"
         aria-label="Next slide"
         disabled={currentSlide === slideCount - 1}
         onClick={handleNext}
-        className={`absolute right-0 ${
+        className={`absolute right-0 focus-visible:ring-4 focus-visible:ring-white focus-visible:outline-hidden focus-visible:ring-offset-2 transition-all ${
           currentSlide === slideCount - 1
             ? "opacity-40 cursor-not-allowed"
             : "hover:text-[#333] active:scale-[0.59] cursor-pointer"
         }`}
       >
-        <GrNext size={75} />
+        <GrNext size={75} aria-hidden="true" />
       </button>
     </div>
   );

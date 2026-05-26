@@ -63,17 +63,17 @@ const Contact = () => {
       {/* Contact Address */}
       <div className="contact-address">
         <div>
-          <ImLocation className="icon" />
+          <ImLocation className="icon" aria-hidden="true" />
           <span>Address</span>
           <span>Egypt – Cairo – Nasr City</span>
         </div>
         <div>
-          <BsFillTelephoneFill className="icon" />
+          <BsFillTelephoneFill className="icon" aria-hidden="true" />
           <span>Phone</span>
           <span>123-456-789</span>
         </div>
         <div>
-          <MdEmail className="icon" />
+          <MdEmail className="icon" aria-hidden="true" />
           <span>Email</span>
           <span>info@fakeemail.com</span>
         </div>
@@ -112,6 +112,7 @@ const Contact = () => {
             <textarea
               className="resize-none h-[300px] bg-white border-b-2 border-b-secondary/75 focus:border-b-primary outline-0 px-1.5 py-2 rounded-sm caret-primary placeholder:text-secondary/30"
               placeholder="Your Message"
+              aria-label="Your Message"
               {...register("message")}
             ></textarea>
             {errors.message && (

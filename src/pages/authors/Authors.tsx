@@ -36,12 +36,14 @@ const Authors = () => {
 
   // Return JSX
   return (
-    <section className={`py-10 min-h-[calc(100vh-73.88px)] flex flex-col`}>
+    <section className="py-10 min-h-[calc(100vh-73.88px)] flex flex-col">
       <div className="custom-container flex flex-col flex-1">
         {/* Search Bar */}
         <div className="relative w-[60%] mb-5">
           <input
-            className="border-b-2 border-b-primary w-full pb-1.5 outline-0 caret-primary placeholder:text-sm placeholder:select-none placeholder:text-secondary/70"
+            id="author-search"
+            aria-label="Search authors by name"
+            className="border-b-2 border-b-primary w-full pb-1.5 outline-0 caret-primary placeholder:text-sm placeholder:select-none placeholder:text-gray-500 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden transition-all"
             type="text"
             placeholder="Author Name"
             value={search}
@@ -52,8 +54,12 @@ const Authors = () => {
               type="button"
               aria-label="Clear search"
               onClick={handleClick}
+              className="absolute right-0 top-1/2 -translate-y-1/2 focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:outline-hidden rounded-sm transition-all"
             >
-              <CgClose className="absolute right-0 top-1/2 -translate-y-1/2 text-xl text-red-600 cursor-pointer font-bold" />
+              <CgClose
+                className="text-xl text-red-600 cursor-pointer font-bold"
+                aria-hidden="true"
+              />
             </button>
           )}
         </div>
@@ -68,11 +74,14 @@ const Authors = () => {
                 className="group border-b border-b-transparent hover:border-b-secondary/75 bg-white h-[280px] flex items-center justify-center shadow-(--shadow-normal) hover:shadow-(--shadow-blue) hover:scale-[1.02] transition-all duration-500 rounded-lg"
               >
                 <div className="relative">
-                  <div className="w-[250px] h-[250px] rounded-md overflow-hidden">
+                  <div className="w-[250px] h-[250px] rounded-md overflow-hidden bg-gray-100">
                     <img
                       className="w-full h-full object-cover"
                       src={`${author.image}`}
                       alt={author.name}
+                      width="250"
+                      height="250"
+                      loading="lazy"
                     />
                   </div>
                   <span className="absolute left-0 bottom-0 bg-primary/75 text-white px-2.5 py-1 rounded-sm rounded-tl-none rounded-br-none group-hover:bg-primary transition-colors duration-500">

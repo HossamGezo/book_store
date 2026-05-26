@@ -40,13 +40,17 @@ const BookDetails = () => {
 
   // Return JSX
   return (
-    <div className="custom-container min-h-screen p-5 text-[#333]">
+    <div className="custom-container min-h-screen p-5 text-gray-800">
       <div className="flex md:items-center max-md:flex-col bg-blue-100 p-2 sm:p-5 rounded-lg">
         {/* Book Details Image */}
-        <div className="h-[200px] w-[200px] md:h-[400px] md:w-[30%]">
+        <div className="h-[200px] w-[200px] md:h-[400px] md:w-[30%] flex items-center justify-center">
           <img
             src={`${book.image}`}
             alt={book.title}
+            width="280"
+            height="400"
+            fetchPriority="high"
+            loading="eager"
             className="h-full object-contain"
           />
         </div>
@@ -54,22 +58,24 @@ const BookDetails = () => {
         <div className="py-5 md:pl-10">
           {/* Book Details Description */}
           <div className="w-full flex flex-col gap-2.5 md:gap-5">
-            <h1 className="text-2xl sm:text-3xl font-bold shrink-0">
+            <h1 className="text-2xl sm:text-3xl font-bold shrink-0 text-gray-900">
               {book.title}
             </h1>
             <div className="flex items-center gap-2.5">
-              <span className="text-xl sm:text-2xl font-bold">By</span>
-              <span className="text-primary text-lg shrink-0">
+              <span className="text-xl sm:text-2xl font-bold text-gray-800">
+                By
+              </span>
+              <span className="text-primary text-lg font-bold shrink-0">
                 {book.author}
               </span>
-              <b className="text-sm font-medium text-gray-500 shrink-0">
+              <b className="text-sm font-medium text-gray-600 shrink-0">
                 (Author)
               </b>
             </div>
             <div className="flex items-center gap-2.5">
               <Rating rating={book.rating} />
-              <span className="text-yellow-500 font-medium">{book.rating}</span>
-              <span className="text-sm text-gray-500 shrink-0">
+              <span className="text-amber-700 font-bold">{book.rating}</span>
+              <span className="text-sm text-gray-600 font-medium shrink-0">
                 ({book.reviews} reviews)
               </span>
             </div>
@@ -77,11 +83,13 @@ const BookDetails = () => {
           {/* Book Details Cart */}
           <div className="flex items-center gap-5 my-5">
             <input
+              id="quantity-input"
+              aria-label="Book quantity"
               min={1}
               type="number"
               value={quantity}
               onChange={(e) => setQuantity(Math.max(1, +e.target.value))}
-              className="w-[150px] py-1.5 h-10 bg-white border-2 border-secondary/75 focus:border-primary outline-0 px-1.5 caret-primary rounded-sm placeholder:text-secondary/30 placeholder:text-sm"
+              className="w-[150px] py-1.5 h-10 bg-white border-2 border-secondary/75 focus:border-primary outline-0 px-1.5 caret-primary rounded-sm placeholder:text-gray-500 placeholder:text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden transition-all"
             />
             <Button
               variant="secondary"
@@ -95,7 +103,7 @@ const BookDetails = () => {
         </div>
       </div>
       {/* Book Details Summary*/}
-      <div className="w-full md:w-3/4 text-lg text-justify my-5 font-medium bg-blue-100 p-2 sm:p-5 rounded-lg">
+      <div className="w-full md:w-3/4 text-lg text-justify my-5 font-medium bg-blue-100 p-2 sm:p-5 rounded-lg text-gray-700 leading-relaxed">
         {book.description}
       </div>
       {/* Book Details public Information */}
@@ -104,21 +112,27 @@ const BookDetails = () => {
           <span className="font-bold bg-blue-100 px-5 py-1.5 rounded-sm">
             Print Length
           </span>
-          <MdOutlineInsertPageBreak className="text-4xl text-primary" />
+          <MdOutlineInsertPageBreak
+            className="text-4xl text-primary"
+            aria-hidden="true"
+          />
           <span className="text-secondary">{book.printLength} Pages</span>
         </div>
         <div>
           <span className="font-bold bg-blue-100 px-2.5 py-1.5 rounded-sm">
             Language
           </span>
-          <GrLanguage className="text-4xl text-primary" />
+          <GrLanguage className="text-4xl text-primary" aria-hidden="true" />
           <span className="text-secondary">{book.language}</span>
         </div>
         <div>
           <span className="font-bold bg-blue-100 px-2.5 py-1.5 rounded-sm">
             Publication Date
           </span>
-          <HiCalendarDateRange className="text-4xl text-primary" />
+          <HiCalendarDateRange
+            className="text-4xl text-primary"
+            aria-hidden="true"
+          />
           <span className="text-secondary">{book.publicationDate}</span>
         </div>
       </div>

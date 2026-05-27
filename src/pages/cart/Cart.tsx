@@ -24,7 +24,11 @@ const Cart = () => {
             </h1>
             <div className="grid grid-cols-5 gap-10">
               {/* Cart Products */}
-              <div className="custom-scrollbar bg-blue-100 p-5 rounded-lg flex flex-col gap-5 h-[75vh] overflow-y-auto col-span-5 xl:col-span-3">
+              <div
+                tabIndex={0}
+                aria-label="Shopping Cart Products"
+                className="custom-scrollbar bg-blue-100 p-5 rounded-lg flex flex-col gap-5 h-[75vh] overflow-y-auto col-span-5 xl:col-span-3 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden transition-all"
+              >
                 {state.map((product) => (
                   <CartProduct key={product.id} {...product} />
                 ))}
@@ -34,14 +38,17 @@ const Cart = () => {
             </div>
           </>
         ) : (
-          <div className="flex flex-col flex-1 items-center justify-center text-[18px] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-red-500 font-jetbrains font-bold">
-            Your cart is empty. Go back to
-            <Link
-              to="/"
-              className="text-blue-600 underline hover:text-purple-600 font-light"
-            >
-              home
-            </Link>
+          <div className="flex flex-col flex-1 items-center justify-center text-[18px] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-red-500 font-jetbrains font-bold gap-3">
+            <p>Your cart is empty.</p>
+            <span className="text-lg font-light text-gray-700">
+              Go back to{" "}
+              <Link
+                to="/"
+                className="text-blue-700 underline hover:text-purple-800 transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-hidden rounded-sm px-1"
+              >
+                home
+              </Link>
+            </span>
           </div>
         )}
       </div>

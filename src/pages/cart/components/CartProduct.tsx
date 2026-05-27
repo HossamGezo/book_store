@@ -55,7 +55,14 @@ const CartProduct = ({
     >
       {/* Cart Product Image */}
       <div className="place-self-start max-md:col-span-2">
-        <img src={`${image}`} alt={title} className="object-contain h-full" />
+        <img
+          src={`${image}`}
+          alt={title}
+          width="80"
+          height="100"
+          loading="lazy"
+          className="object-contain h-full"
+        />
       </div>
       {/* Cart Product Details */}
       <div className="flex flex-col gap-1 col-span-5 md:col-span-3 place-self-start">
@@ -81,7 +88,9 @@ const CartProduct = ({
           <b className="text-[#333] font-medium w-[65px] bg-blue-100/50 px-1 py-0.5 rounded-sm mr-1">
             Price:
           </b>
-          <span className="text-red-400">{formatCurrency(price)}</span>
+          <span className="text-red-600 font-medium">
+            {formatCurrency(price)}
+          </span>
         </span>
       </div>
       {/* Cart Product amount */}
@@ -94,7 +103,7 @@ const CartProduct = ({
             aria-label="Increase quantity"
             onClick={() => handleIncrease(id)}
           >
-            <FaPlus className="text-xl" />
+            <FaPlus className="text-xl" aria-hidden="true" />
           </Button>
           <span className="font-medium text-xl bg-blue-100/50 w-[50px] px-0.5 py-0.5 text-center rounded-sm font-jetbrains">
             {amount}
@@ -105,7 +114,7 @@ const CartProduct = ({
             aria-label="Decrease quantity"
             onClick={() => handleDecrease(id)}
           >
-            <FaMinus className="text-xl" />
+            <FaMinus className="text-xl" aria-hidden="true" />
           </Button>
         </div>
       </div>
@@ -113,10 +122,10 @@ const CartProduct = ({
       <button
         type="button"
         aria-label="Remove product from cart"
-        className="absolute bottom-5 right-5 cursor-pointer *:hover:scale-[1.05] *:transition-transform *:duration-300"
+        className="absolute bottom-1 right-2 cursor-pointer *:hover:scale-[1.05] *:transition-transform *:duration-300 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:outline-hidden rounded-sm transition-all p-1"
         onClick={() => handleDelete(id)}
       >
-        <MdDeleteForever className="text-red-500 text-4xl" />
+        <MdDeleteForever className="text-red-500 text-4xl" aria-hidden="true" />
       </button>
     </div>
   );

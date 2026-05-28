@@ -1,4 +1,4 @@
-# 📚 Bookstore - Advanced E-Commerce Logic & State Management
+# 📚 Bookstore — Modern React Book Shop
 
 <div align="center">
 
@@ -8,10 +8,14 @@
 ![Zod](https://img.shields.io/badge/Zod-3E67B1?style=flat&logo=zod&logoColor=white)
 ![ReactRouter](https://img.shields.io/badge/React_Router_7-CA4245?style=flat&logo=react-router)
 ![Vite](https://img.shields.io/badge/Vite_6-646CFF?style=flat&logo=vite)
+![Performance](https://img.shields.io/badge/Lighthouse_Performance-99%25-success?style=flat&logo=lighthouse&logoColor=white)
+![Accessibility](https://img.shields.io/badge/Lighthouse_Accessibility-100%25-success?style=flat&logo=lighthouse&logoColor=white)
+![Best Practices](https://img.shields.io/badge/Lighthouse_Best_Practices-100%25-success?style=flat&logo=lighthouse&logoColor=white)
+![SEO](https://img.shields.io/badge/Lighthouse_SEO-100%25-success?style=flat&logo=lighthouse&logoColor=white)
 
 <br />
 
-[**🌐 Live Demo**](https://hossamgezo-bookstore.netlify.app/) | [**💻 GitHub Repository**](https://github.com/HossamGezo/book_store)
+[**🌐 Live Demo**](https://hossamgezo-bookstore.netlify.app/)
 
 </div>
 
@@ -22,6 +26,14 @@
 An advanced e-commerce frontend engineered with **React 19** and **TypeScript**. This project demonstrates mastery of complex state management using **Context API** and **useReducer**, delivering a high-performance shopping experience with persistent data synchronization and a refined UI featuring custom skeleton loading strategies.
 
 ---
+
+## 📊 Lighthouse Audit
+
+This project is engineered to meet the absolute highest standards of modern web performance, accessibility, best practices, and search engine optimization, achieving a near-perfect mobile audit score:
+
+<div align="center">
+  <img src="assets/lighthouse.png" alt="Book Store Lighthouse Audit: 99 Performance, 100 Accessibility, 100 Best Practices, 100 SEO" width="800" />
+</div>
 
 ## 📸 Visual Journey
 

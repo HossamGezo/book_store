@@ -24,16 +24,21 @@ const Card = ({ id, price, rating, title, reviews, image }: BookType) => {
   // Custom Hooks
   const { setTogglePopup } = usePopupContext();
   const { state, dispatch } = useCartContext();
+
   // Is In Cart
   const isInCart = state.find((product) => product.id === id);
+
   // Add To Cart Function
   const addToCart = (id: number) => {
     dispatch({ type: "ADD_TO_CART", payload: { id: id, amount: 1 } });
+    toast.dismiss();
     toast.success("Successfully added to cart!");
   };
+
   // Remove From Cart Function
   const removeFromCart = (id: number) => {
     dispatch({ type: "DELETE_FROM_CART", payload: { id: id } });
+    toast.dismiss();
     toast.success("Successfully removed from cart!");
   };
 

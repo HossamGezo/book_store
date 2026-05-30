@@ -43,6 +43,7 @@ const ProductPopup = ({ bookId }: ProductPopupProps) => {
     const amountToAdd = quantity < 1 ? 1 : quantity;
     dispatch({ type: "ADD_TO_CART", payload: { id: id, amount: amountToAdd } });
     setQuantity(amountToAdd);
+    toast.dismiss();
     toast.success("Successfully added to cart!");
   };
   // Return JSX

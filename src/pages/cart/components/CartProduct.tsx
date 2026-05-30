@@ -33,17 +33,21 @@ const CartProduct = ({
 }: CartProductProps) => {
   // Custom Hooks
   const { dispatch } = useCartContext();
+
   // Handle Increase Function
   const handleIncrease = (id: number) => {
     dispatch({ type: "INCREASE", payload: { id: id, amount: 1 } });
   };
+
   // Handle Decrease Function
   const handleDecrease = (id: number) => {
     dispatch({ type: "DECREASE", payload: { id: id, amount: 1 } });
   };
+
   // Handle Delete Function
   const handleDelete = (id: number) => {
     dispatch({ type: "DELETE_FROM_CART", payload: { id: id } });
+    toast.dismiss();
     toast.success("Successfully removed from cart!");
   };
 

@@ -15,10 +15,12 @@ import type { BookType } from "@/types/types";
 type CartContextProviderProps = {
   children: React.ReactNode;
 };
+
 // --- Cart State Props
 export type CartStateProps = BookType & {
   amount: number;
 };
+
 // --- Cart Action Props
 type CartActionProps =
   | {
@@ -26,6 +28,7 @@ type CartActionProps =
       payload: { id: number; amount: number };
     }
   | { type: "DELETE_FROM_CART"; payload: { id: number } };
+
 // --- Cart Context Props
 type CartContextProps = {
   dispatch: React.ActionDispatch<[action: CartActionProps]>;
@@ -51,6 +54,7 @@ const reducer = (
     const result = state.filter((book) => book.id !== id);
     return result;
   }
+
   // Control Actions
   switch (action.type) {
     case "ADD_TO_CART": {
@@ -86,11 +90,13 @@ const reducer = (
       const { id } = action.payload;
       const book = state.find((book) => book.id === id);
       if (!book) {
+        toast.dismiss();
         toast.error("Book not found");
         return state;
       }
       // Delete if amount equal 1
       if (book.amount === 1) {
+        toast.dismiss();
         toast.success("Successfully removed from cart!");
         return CartDelete(id);
       }
